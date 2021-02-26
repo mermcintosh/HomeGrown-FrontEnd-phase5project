@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 30 rem;
+  height: auto;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #0c212bf8;
+  font-size: 25px;
+}
+
+.card:hover{
+  color:#070707;
+  border-color:#f8f1f1;
+  background-color: rgb(201, 195, 189);
+}
