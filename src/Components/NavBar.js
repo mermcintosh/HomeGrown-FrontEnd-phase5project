@@ -8,9 +8,8 @@ class NavBar extends React.Component{
     render(){
     return (
       <div>
-       <Router><Link to="/login"><button>Login</button></Link>
-       <button>Register</button>
-       </Router>
+       <button><Link to="/login">Login</Link></button>
+       <button><Link to="/register">Register</Link></button>      
       </div>
     )
   }}
