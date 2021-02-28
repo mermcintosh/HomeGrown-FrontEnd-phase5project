@@ -10,8 +10,9 @@ class LoginPage extends React.Component{
       password: ""
     }
 
-    handleChange = (e, {name, value}) => {
-      this.setState({[name]: value})
+    handleChange = (e) => {
+      console.log(e.target.name)
+      this.setState({[e.target.name]: e.target.value})
     }
 
     handleLoginSubmit = () => {
@@ -74,12 +75,10 @@ class LoginPage extends React.Component{
     value={this.state.username} 
     />
 
-    <input
-     error
-     header={this.props.failedLogin ? this.props.error : null}
-     />
+   {/* <div>{this.props.failedLogin ? this.props.error : null}</div> */}
 
-    
+   {this.props.failedLogin && 
+   <div>{this.props.error}</div>}
 
     <input 
     type="password"
