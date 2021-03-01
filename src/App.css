@@ -37,6 +37,27 @@
   }
 }
 
+button {
+  position: relative;
+  background-color: #0b9696;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 18px;
+  justify-self: center;
+}
+.buttonContainer {
+  text-align: right;
+  padding: 1rem;
+}
+button:hover {
+  background-color: whitesmoke;
+  border: #0d7ce4 solid 1px;
+  color: #053705;
+}
+
 .card {
   text-align: center;
   border: grey solid 1px;

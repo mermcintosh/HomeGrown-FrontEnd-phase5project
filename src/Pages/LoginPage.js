@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { Redirect } from "react-router-dom";
 // import { Button, Form, Segment, Message } from "semantic-ui-react"
 
 
@@ -15,12 +16,13 @@ class LoginPage extends React.Component{
       this.setState({[e.target.name]: e.target.value})
     }
 
-    handleLoginSubmit = () => {
-      fetch("http://localhosl:3000/login", {
+    handleLoginSubmit = (e) => {
+      e.preventDefault()
+      fetch("http://localhost:3000/login", {
         method: "POST",
         headers: {
           "Content-Type" : "application/json",
-          "Accept" : "application.json"
+          "Accept" : "application/json"
         },
         body: JSON.stringify({
           username: this.state.username,
@@ -28,6 +30,7 @@ class LoginPage extends React.Component{
         })
       }).then(res => res.json())
       .then(userData => {
+        console.log(userData)
        this.props.updateCurrentUser(userData)
       })
     }
@@ -66,7 +69,8 @@ class LoginPage extends React.Component{
     key="mini"
     loading={this.props.authenticatingUser}
     error={this.props.failedLogin}
-  >
+    >
+
     <input 
     label="username"
     placeholder="username"

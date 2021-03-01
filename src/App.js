@@ -30,7 +30,7 @@ class App extends React.Component{
   updateCurrentUser = (user) => {
     this.setState({currentUser: user})
   }
-  // logInUser = (username) => {
+  // updateCurrentUser = (username) => {
   //   let current = this.state.users.find(
   //     (user) => user.username === username
   //     );
@@ -50,21 +50,49 @@ class App extends React.Component{
       });
 }
 
-addToCollection(){
-  console.log("it works")
+addToCollection = (plant) =>{
+  console.log(plant)
+  
+  let newCollectionPlant = {
+    plant_id: plant.id,
+    user_id: this.state.currentUser.id,
+    nickname: ""
+  }
+
+  let reqPack = {};
+  reqPack.method = "POST";
+  reqPack.headers = {"Content-Type": "application/json"};
+  reqPack.body = JSON.stringify(newCollectionPlant);
+
+  fetch("http://localhost:3000/collections", reqPack);
+
+  let updatedCollection = [...this.state.collection, plant];
+  this.setState({collection: updatedCollection})
+
+  
 }
 
-  render(){
+//if the URL is /login,
+//we want to LoginPage if currentUser is null
+//if currentUser isn't null, we want to redirect
+//to /user
+  render()
+  {
   return (
       <Fragment>
       <NavBar/>
     <Router/>
     <Switch>
       <Route exact path="/" component={LandingPage}/>
-      <Route exact path="/login" render={() => <LoginPage updateCurrentUser={this.updateCurrentUser}/>}/>
+      <Route exact path="/login" render={() => (
+            this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} /> : <Redirect to="/user"/>
+          )}/>
       <Route exact path="/register" component={RegisterPage}/>
-      <Route exact path="/user" component={UserPage}/>
-      <Route exact path="/directory" component={DirectoryPage}/>
+      <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser}/>}/>
+      <Route path="/directory" render={(props) => (
+      <DirectoryPage plants={this.state.plants} addToCollection={this.addToCollection} updateCurrentUser={this.updateCurrentUser}/>
+      )}
+      />
       <Route component={NotFoundPage}/>
     </Switch>
     <Router/>
@@ -74,40 +102,3 @@ addToCollection(){
 }}
 
 export default App;
-
-
-//one way of doing it
-{/* <Router>
-  <div>
-  <Route exact path="/" component={LandingPage} />
-  
-  <Route path="/login" render={(props) => (
-    <LoginPage plants={this.state.users} />
-    )}/>
-    
-    <Route path="/register" component={RegisterPage} />
-    
-    <Route path="/user" component={UserPage} />
-    
-    <Route path="/directory" render={(props) => (
-      <DirectoryPage plants={this.state.plants} addToCollection={this.addToCollection} />
-      )}
-      />
-      </div>
-    </Router> */}
-
-//second way of doing it
-    // <Fragment>
-    //   <NavBar/>
-    // <Router/>
-    // <Switch>
-    //   <Route exact path="/" component={LandingPage}/>
-    //   <Route exact path="/login" component={LoginPage}/>
-    //   <Route exact path="/register" component={RegisterPage}/>
-    //   <Route exact path="/user" component={UserPage}/>
-    //   <Route exact path="/directory" component={DirectoryPage}/>
-    //   <Route component={NotFoundPage}/>
-    // </Switch>
-    // <Router/>
-    // <Footer/>
-    // </Fragment>

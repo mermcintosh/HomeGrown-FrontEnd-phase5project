@@ -7,7 +7,7 @@ class DirectoryPage extends React.Component{
     return (
       <div>
        <h1>This is directory page</h1>
-       {this.props.plants.map(plant => <Card plant={plant} addToCollection={this.props.addToCollection}/>)}
+       {this.props.plants.map(plant => <Card plant={plant} addToCollection={this.props.addToCollection} updateCurrentUser={this.props.updateCurrentUser}/>)}
       </div>
     )
   }}
