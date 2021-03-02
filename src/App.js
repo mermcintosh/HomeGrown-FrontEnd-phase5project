@@ -10,6 +10,7 @@ import UserPage from './Pages/UserPage.js'
 import DirectoryPage from './Pages/DirectoryPage.js'
 import Footer from './Components/Footer.js'
 import NotFoundPage from './Pages/NotFoundPage'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 //house user login state
 //house collection state
@@ -66,10 +67,14 @@ addToCollection = (plant) =>{
 
   fetch("http://localhost:3000/collections", reqPack);
 
-  let updatedCollection = [...this.state.collection, plant];
+  let updatedCollection = [this.state.collection, plant];
   this.setState({collection: updatedCollection})
 
   
+}
+
+deleteCollection = (collection) =>{
+  console.log(collection)
 }
 
 //if the URL is /login,

@@ -1,8 +1,5 @@
 import React from 'react'; 
-import { Redirect } from "react-router-dom";
-// import { Button, Form, Segment, Message } from "semantic-ui-react"
-
-
+import { Redirect } from "react-router-dom"
 
 class LoginPage extends React.Component{
 
@@ -35,31 +32,7 @@ class LoginPage extends React.Component{
       })
     }
 
-    // handleLoginSubmit = () => {
-    //   console.log("attempting to log in")
-    //   fetch("http://localhost:3000/login", {
-    //     method:"POST",
-    //     headers: {
-    //       "Content-Type" : "application/json",
-    //       "Accept" : "application.json"
-    //     },
-    //     body: JSON.stringify({
-    //       username: this.state.username,
-    //       password: this.state.password
-    //     })
-    //   }).then(res => res.json())
-    //   .then(userData => {
-    //     console.log("response from the server", data)
-    //     if(data.error_message){
-    //       alert(data.error_message)
-    //     }else{
-    //       //successful log in
-    //       localStorage.setItem("token", data.token)
-    //       this.props.updateCurrentUser(data.user_data)
-    //     }
-    //   })
-    // };
-
+  
     render(){
     return (
       <div>
@@ -79,8 +52,6 @@ class LoginPage extends React.Component{
     value={this.state.username} 
     />
 
-   {/* <div>{this.props.failedLogin ? this.props.error : null}</div> */}
-
    {this.props.failedLogin && 
    <div>{this.props.error}</div>}
 
@@ -95,10 +66,7 @@ class LoginPage extends React.Component{
 
     <button type="submit" value="Submit">Login</button>
 </form>
-      </div>
-
-
-      
+      </div>  
     )
   }}
   
