@@ -4,14 +4,13 @@ import CollectionCard from '../Components/CollectionCard'
 
 
 class UserPage extends React.Component{
-
-    state = {
-      currentUserData: []
-    }
+  state = {
+    currentUserData: []
+  }
 
     componentDidMount(){
       
-      fetch(`http://localhost:3000/users/102`)
+      fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
       .then(res => res.json())
       .then(currentUserData => {
         this.setState({currentUserData})

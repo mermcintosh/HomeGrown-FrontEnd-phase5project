@@ -10,14 +10,14 @@ class CollectionCard extends React.Component{
     render(){
     return (
       <div className="card">
-        <h2>{this.props.collection.plant.id}</h2>
         <h3>{this.props.collection.plant.name}</h3>
         {/* {console.log(this.props.collection)} */}
         {/* wont show up on screen (the nickname above) */}
-
+        <h3>{this.props.collection.plant.category}</h3>
+        <h3>{this.props.collection.plant.description}</h3>
         {/* <img src = {this.props.collection.plant_id.image}/>
         <h3>{this.props.collection.category}</h3>
-        <h3>{this.props.collection.description}</h3>
+       
         <h3>{this.props.collection.light}</h3>
         <h3>{this.props.collection.watering}</h3>
         <h3>{this.props.collection.soil}</h3> */}
