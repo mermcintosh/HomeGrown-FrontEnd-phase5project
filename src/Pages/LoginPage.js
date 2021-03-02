@@ -9,7 +9,7 @@ class LoginPage extends React.Component{
     }
 
     handleChange = (e) => {
-      console.log(e.target.name)
+      // console.log(e.target.name)
       this.setState({[e.target.name]: e.target.value})
     }
 
@@ -27,7 +27,7 @@ class LoginPage extends React.Component{
         })
       }).then(res => res.json())
       .then(userData => {
-        console.log(userData)
+        // console.log(userData)
        this.props.updateCurrentUser(userData)
       })
     }

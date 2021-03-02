@@ -25,19 +25,14 @@ class App extends React.Component{
     currentUser: null,
     users: [],
     plants: [],
-    collections: []
+    collections: [],
+    currentUserData: []
   }
 
   updateCurrentUser = (user) => {
     this.setState({currentUser: user})
   }
-  // updateCurrentUser = (username) => {
-  //   let current = this.state.users.find(
-  //     (user) => user.username === username
-  //     );
-  //     this.setState({ currentUser: current });
-  //   };
-
+  
   componentDidMount() {
     Promise.all([fetch(UsersURL), fetch(PlantsURL), fetch(CollectionsURL)])
 
@@ -68,9 +63,7 @@ addToCollection = (plant) =>{
   fetch("http://localhost:3000/collections", reqPack);
 
   let updatedCollection = [this.state.collection, plant];
-  this.setState({collection: updatedCollection})
-
-  
+  this.setState({collection: updatedCollection}) 
 }
 
 deleteCollection = (collection) =>{
@@ -95,7 +88,7 @@ deleteCollection = (collection) =>{
       <Route exact path="/register" component={RegisterPage}/>
       <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser}/>}/>
       <Route path="/directory" render={(props) => (
-      <DirectoryPage plants={this.state.plants} addToCollection={this.addToCollection} updateCurrentUser={this.updateCurrentUser}/>
+      <DirectoryPage plants={this.state.plants} addToCollection={this.addToCollection} currentUser={this.state.currentUser}/>
       )}
       />
       <Route component={NotFoundPage}/>

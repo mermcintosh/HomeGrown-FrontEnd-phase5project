@@ -10,13 +10,17 @@ class CollectionCard extends React.Component{
     render(){
     return (
       <div className="card">
-        {/* <h2>{this.props.plant.name}</h2>
-        <img src = {this.props.plant.image}/>
-        <h3>{this.props.plant.category}</h3>
-        <h3>{this.props.plant.description}</h3>
-        <h3>{this.props.plant.light}</h3>
-        <h3>{this.props.plant.watering}</h3>
-        <h3>{this.props.plant.soil}</h3> */}
+        <h2>{this.props.collection.plant.id}</h2>
+        <h3>{this.props.collection.plant.name}</h3>
+        {/* {console.log(this.props.collection)} */}
+        {/* wont show up on screen (the nickname above) */}
+
+        {/* <img src = {this.props.collection.plant_id.image}/>
+        <h3>{this.props.collection.category}</h3>
+        <h3>{this.props.collection.description}</h3>
+        <h3>{this.props.collection.light}</h3>
+        <h3>{this.props.collection.watering}</h3>
+        <h3>{this.props.collection.soil}</h3> */}
         <button onClick={() => (this.props.deleteCollection(this.props.collection))}>Remove from collection!</button>
       </div>
     )
