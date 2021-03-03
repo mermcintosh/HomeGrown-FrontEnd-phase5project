@@ -11,7 +11,7 @@ class Card extends React.Component{
     return (
       <div className="card">
         <h2>{this.props.plant.name}</h2>
-        <img className="img-card"src = {this.props.plant.image}/>
+        <img className="img-card"src = {this.props.plant.image} style={{width: "400px"}}/>
         <h4>{this.props.plant.category}</h4>
         <h4>{this.props.plant.description}</h4>
         <h4>{this.props.plant.light}</h4>

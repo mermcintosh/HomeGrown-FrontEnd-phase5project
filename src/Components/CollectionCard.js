@@ -21,7 +21,7 @@ class CollectionCard extends React.Component{
         <h3>{this.props.collection.light}</h3>
         <h3>{this.props.collection.watering}</h3>
         <h3>{this.props.collection.soil}</h3> */}
-        <button onClick={() => (this.props.deleteCollection(this.props.collection))}>Remove from collection!</button>
+        <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button>
       </div>
     )
   }}

@@ -16,7 +16,7 @@ import NotFoundPage from './Pages/NotFoundPage'
 //house collection state
 
 let PlantsURL = "http://localhost:3000/plants" 
-let CollectionsURL = "http://localhost:3000/collections"
+let CollectionsURL = "http://localhost:3000/collections/"
 let UsersURL = "http://localhost:3000/users"
 
 class App extends React.Component{
@@ -47,7 +47,7 @@ class App extends React.Component{
 }
 
 addToCollection = (plant) =>{
-  console.log(plant)
+  // console.log(plant)
   
   let newCollectionPlant = {
     plant_id: plant.id,
@@ -67,8 +67,22 @@ addToCollection = (plant) =>{
 }
 
 deleteCollection = (collection) =>{
-  console.log(collection)
+  // console.log(collection.id)
+  let chosenItem = collection.id
+
+  fetch(CollectionsURL + collection.id, {
+    method: "DELETE",
+  })
+  .then(res => res.json())
+  .then(() => {
+    console.log(this.state.collections.filter((filteredCollection) => filteredCollection != collection))
+    this.setState({
+      collections: this.state.collections.filter((filteredCollection) => filteredCollection != collection)
+    })
+  })
 }
+
+
 
 //if the URL is /login,
 //we want to LoginPage if currentUser is null
@@ -86,7 +100,7 @@ deleteCollection = (collection) =>{
             this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} /> : <Redirect to="/user"/>
           )}/>
       <Route exact path="/register" component={RegisterPage}/>
-      <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser}/>}/>
+      <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser} deleteCollection={this.deleteCollection}/>}/>
       <Route path="/directory" render={(props) => (
       <DirectoryPage plants={this.state.plants} addToCollection={this.addToCollection} currentUser={this.state.currentUser}/>
       )}
