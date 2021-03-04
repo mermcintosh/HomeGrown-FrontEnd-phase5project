@@ -8,10 +8,12 @@ class NavBar extends React.Component{
     render(){
     return (
       <div>
-       <button><Link to="/login">Login</Link></button>
-       <button><Link to="/register">Register</Link></button>      
-      </div>
+       {this.props.currentUser ? <button onClick={this.props.logOut}><Link to="/user">Logout</Link></button> : <button><Link to="/login">Login</Link></button>} 
+       {this.props.currentUser ? null : <button><Link to="/register">Register</Link></button>}       
+       </div>
     )
   }}
   
   export default NavBar;
+
+ 

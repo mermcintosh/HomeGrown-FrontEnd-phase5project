@@ -32,6 +32,10 @@ class App extends React.Component{
   updateCurrentUser = (user) => {
     this.setState({currentUser: user})
   }
+
+  logOut = () => {
+    this.setState({currentUser: null})
+  }
   
   componentDidMount() {
     Promise.all([fetch(UsersURL), fetch(PlantsURL), fetch(CollectionsURL)])
@@ -66,21 +70,21 @@ addToCollection = (plant) =>{
   this.setState({collection: updatedCollection}) 
 }
 
-deleteCollection = (collection) =>{
-  // console.log(collection.id)
-  let chosenItem = collection.id
+// deleteCollection = (collection) =>{
+//   // console.log(collection.id)
+//   let chosenItem = collection.id
 
-  fetch(CollectionsURL + collection.id, {
-    method: "DELETE",
-  })
-  .then(res => res.json())
-  .then(() => {
-    console.log(this.state.collections.filter((filteredCollection) => filteredCollection != collection))
-    this.setState({
-      collections: this.state.collections.filter((filteredCollection) => filteredCollection != collection)
-    })
-  })
-}
+//   fetch(CollectionsURL + collection.id, {
+//     method: "DELETE",
+//   })
+//   .then(res => res.json())
+//   .then(() => {
+//     console.log(this.state.collections.filter((filteredCollection) => filteredCollection != collection))
+//     this.setState({
+//       collections: this.state.collections.filter((filteredCollection) => filteredCollection != collection)
+//     })
+//   })
+// }
 
 
 
@@ -92,7 +96,7 @@ deleteCollection = (collection) =>{
   {
   return (
       <Fragment>
-      <NavBar/>
+      <NavBar logOut={this.logOut} currentUser={this.state.currentUser}/>
     <Router/>
     <Switch>
       <Route exact path="/" component={LandingPage}/>
@@ -100,7 +104,7 @@ deleteCollection = (collection) =>{
             this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} /> : <Redirect to="/user"/>
           )}/>
       <Route exact path="/register" component={RegisterPage}/>
-      <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser} deleteCollection={this.deleteCollection}/>}/>
+      <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser}/>}/>
       <Route path="/directory" render={(props) => (
       <DirectoryPage plants={this.state.plants} addToCollection={this.addToCollection} currentUser={this.state.currentUser}/>
       )}
