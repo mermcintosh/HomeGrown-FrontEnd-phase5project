@@ -7,6 +7,7 @@ let CollectionsURL = "http://localhost:3000/collections/"
 class UserPage extends React.Component{
   state = {
     currentUserData: [],
+    
   }
 
     componentDidMount(){
@@ -33,6 +34,8 @@ class UserPage extends React.Component{
         })
       })
     }
+
+   
 
    
     assignNickname = (plantNickname, id) => {

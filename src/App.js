@@ -26,7 +26,8 @@ class App extends React.Component{
     users: [],
     plants: [],
     collections: [],
-    currentUserData: []
+    currentUserData: [],
+    searchText: ""
   }
 
   updateCurrentUser = (user) => {
@@ -48,6 +49,10 @@ class App extends React.Component{
         this.setState({plants})
         this.setState({collections})
       });
+}
+
+changeSearch = (text) => {
+  this.setState({searchText: text})
 }
 
 addToCollection = (plant) =>{
@@ -94,6 +99,7 @@ addToCollection = (plant) =>{
 //to /user
   render()
   {
+    const filteredPlants = this.state.plants.filter(plant => plant.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
   return (
       <Fragment>
       <NavBar logOut={this.logOut} currentUser={this.state.currentUser}/>
@@ -106,7 +112,7 @@ addToCollection = (plant) =>{
       <Route exact path="/register" component={RegisterPage}/>
       <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser}/>}/>
       <Route path="/directory" render={(props) => (
-      <DirectoryPage plants={this.state.plants} addToCollection={this.addToCollection} currentUser={this.state.currentUser}/>
+      <DirectoryPage addToCollection={this.addToCollection} currentUser={this.state.currentUser} changeSearch={this.changeSearch} plants={filteredPlants}/>
       )}
       />
       <Route component={NotFoundPage}/>
