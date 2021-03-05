@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom'
+import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
 
 ReactDOM.render(
   <React.StrictMode>

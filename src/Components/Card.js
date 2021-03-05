@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Link, Redirect, BrowserRouter as Router } from 'react-router-dom'
 
 
 
@@ -9,6 +9,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 class Card extends React.Component{
     render(){
     return (
+      
       <div className="card">
         <h2>{this.props.plant.name}</h2>
         <img className="img-card"src = {this.props.plant.image} style={{width: "400px"}}/>
@@ -19,6 +20,7 @@ class Card extends React.Component{
         <h4>{this.props.plant.soil}</h4>
         <button onClick={() => (this.props.addToCollection(this.props.plant))}><Link to="/user">Add me to your collection!</Link></button>
       </div>
+      
     )
   }}
 
