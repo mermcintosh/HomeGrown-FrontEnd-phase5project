@@ -15,6 +15,7 @@ class UserPage extends React.Component{
         fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
         .then(res => res.json())
         .then(currentUserData => {
+        // let UserCollection = this.props.setUserCollection(currentUserData)
         this.setState({currentUserData})
       })
       }
@@ -25,19 +26,11 @@ class UserPage extends React.Component{
         method: "DELETE",
       })
       .then(res => res.json())
-      .then(() => {
-        let newCurrentUserData = {...this.state.currentUserData}
-        newCurrentUserData.collections = this.state.currentUserData.collections.filter((filteredCollection) => filteredCollection.id !== collection.id)
-
-        this.setState({
-          currentUserData: newCurrentUserData
-        })
+      .then((userPlant) => {
+        this.props.deleteUserPlant(userPlant)
       })
     }
 
-   
-
-   
     assignNickname = (plantNickname, id) => {
          let plantCollection = {
             nickname: plantNickname
@@ -54,12 +47,7 @@ class UserPage extends React.Component{
         fetch(CollectionsURL + id, reqPackage)
         .then(res => res.json())
         .then(newNickname => {
-          console.log("State")
-          console.log(this.state.currentUserData)
           const copyOfCurrentUserData = {...this.state.currentUserData}
-          console.log("Copy of state")
-          console.log(copyOfCurrentUserData)
-          // const collections = copyOfCurrentUserData.collections.map(collection => collection.id == id ? {...collection, collection.nickname : newNickname} : collection)
           const collections = copyOfCurrentUserData.collections.map(collection => {
             if(collection.id === id) {
               console.log(`the collection id is ${collection.id} and the nickname is ${plantNickname}`)
@@ -69,8 +57,6 @@ class UserPage extends React.Component{
           })
 
           copyOfCurrentUserData.collections = collections
-          console.log("After updating the collection")
-          console.log(copyOfCurrentUserData)
           this.setState({
               currentUserData: copyOfCurrentUserData
           })
@@ -84,7 +70,7 @@ class UserPage extends React.Component{
         <div>
         <h1>Hello, {this.props.currentUser.username}</h1>
         <button><Link to="/directory">Add a new plant to my collection!</Link></button>
-        {this.state.currentUserData.collections && this.state.currentUserData.collections.map(collection => 
+        {this.props.userCollection.map(collection => 
           <CollectionCard 
             collection={collection} 
             key={collection.id} 

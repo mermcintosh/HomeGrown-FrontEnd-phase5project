@@ -23,15 +23,17 @@ class CollectionCard extends React.Component{
         <h3>{this.props.collection.plant.name}</h3>
         {/* {console.log(this.props.collection)} */}
         {/* wont show up on screen (the nickname above) */}
-        <h3>{this.props.collection.plant.category}</h3>
+        {/* <h3>{this.props.collection.plant.category}</h3>
         <h3>{this.props.collection.plant.description}</h3>
-        <h3>{this.props.collection.nickname}</h3>
+        <h3>{this.props.collection.nickname}</h3> */}
         {/* <img src = {this.props.collection.plant_id.image}/>
         <h3>{this.props.collection.category}</h3>
         <h3>{this.props.collection.light}</h3>
         <h3>{this.props.collection.watering}</h3>
         <h3>{this.props.collection.soil}</h3> */}
         <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button>
+        {/* <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button> */}
+
         <button onClick={this.handleShowForm}> Give my plant a nickname! </button>
         { this.state.showForm
             ?
