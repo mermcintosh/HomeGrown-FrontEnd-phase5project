@@ -27,8 +27,16 @@ class App extends React.Component{
     searchText: "",
     limit: 0,
     filter: "All",
-    userCollection: []
+    userCollection: [],
+    hideShell: false
   }
+
+  hideShell = (status) => {
+    this.setState({hideShell: status})
+  }
+
+  //pass the hideShell state to all page Components and set the ones to false where i want the navbar to show up
+  //
 
   autoLogin = ()=> {
     const storageUser = ls.get("savedUser")
@@ -143,13 +151,14 @@ addToCollection = (plant) =>{
   {
     const filteredPlants = this.state.plants.filter(plant => plant.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
   return (
-      <Fragment>
-        <NavBar logOut={this.logOut} currentUser={this.state.currentUser}/>
+    <Fragment>
+        
+       {!this.state.hideShell &&  <NavBar logOut={this.logOut} currentUser={this.state.currentUser}/>}
         <Router/>
           <Switch>
             <Route exact path="/" component={LandingPage}/>
             <Route exact path="/login" render={() => (
-                  this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} setUserCollection={this.setUserCollection} /> : <Redirect to="/user"/>
+                  this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} setUserCollection={this.setUserCollection} hideShell={this.hideShell}/> : <Redirect to="/user"/>
                 )}/>
             <Route exact path="/register" component={RegisterPage}/>
             <Route exact path="/user" render={() => 
@@ -158,6 +167,7 @@ addToCollection = (plant) =>{
                 userCollection={this.state.userCollection} 
                 deleteUserPlant={this.deleteUserPlant} 
                 setUserCollection={this.setUserCollection}
+                
                 // updateNickname={this.updateNickname}
                 />}/>
             <Route path="/directory" render={(props) => (

@@ -62,6 +62,12 @@ class LoginPage extends React.Component{
     username: "",
     password: ""
   }
+
+  componentDidMount(){
+    this.props.hideShell(true)
+  }
+
+  
   
   
   handleChange = (e) => {
@@ -129,7 +135,7 @@ class LoginPage extends React.Component{
               required
               fullWidth
               name="password"
-              label="Password"
+              label="password"
               type="password"
               id="password"
               autoComplete="current-password"
