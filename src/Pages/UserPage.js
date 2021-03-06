@@ -11,6 +11,7 @@ class UserPage extends React.Component{
   }
 
     componentDidMount(){
+      this.props.hideShell(false)
       if (this.props.currentUser){
         fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
         .then(res => res.json())

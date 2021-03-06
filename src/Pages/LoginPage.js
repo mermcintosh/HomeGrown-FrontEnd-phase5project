@@ -49,7 +49,7 @@ const styles = theme => ({
     background: 'linear-gradient(45deg, #91c292 30%, #317532 90%)',
     border: 0,
     borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(132, 194, 133)',
+    boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
     color: 'white',
     height: 48,
     padding: '0 30px',
@@ -117,6 +117,7 @@ class LoginPage extends React.Component{
                 error={this.props.failedLogin}>
             <TextField
               variant="outlined"
+              color="#6b7d6c"
               margin="normal"
               required
               fullWidth
@@ -131,6 +132,7 @@ class LoginPage extends React.Component{
             />
             <TextField
               variant="outlined"
+              color="#6b7d6c"
               margin="normal"
               required
               fullWidth
@@ -152,7 +154,7 @@ class LoginPage extends React.Component{
             </Button>
             <Grid container>
                 <Button component={Link} to="/register" href="#" variant="body2">
-                  Don't have an account? Sign Up
+                  Don't have an account? Register here!
                 </Button>
             </Grid>
             <Box mt={5}>

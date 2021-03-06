@@ -6,7 +6,9 @@ import BackButton from '../Components/BackButton.js'
 
 class DirectoryPage extends React.Component{
 
-  
+  componentDidMount(){
+    this.props.hideShell(false)
+  }
 
     render(){
     return (

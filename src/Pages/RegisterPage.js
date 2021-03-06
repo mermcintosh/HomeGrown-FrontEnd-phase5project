@@ -9,6 +9,10 @@ class RegisterPage extends React.Component {
     errorMessage: "",
   };
 
+  componentDidMount(){
+    this.props.hideShell(true)
+  }
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({

@@ -156,17 +156,20 @@ addToCollection = (plant) =>{
        {!this.state.hideShell &&  <NavBar logOut={this.logOut} currentUser={this.state.currentUser}/>}
         <Router/>
           <Switch>
-            <Route exact path="/" component={LandingPage}/>
+            <Route exact path="/" render={() => 
+            <LandingPage hideShell={this.hideShell}/>
+            }/>
             <Route exact path="/login" render={() => (
                   this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} setUserCollection={this.setUserCollection} hideShell={this.hideShell}/> : <Redirect to="/user"/>
                 )}/>
-            <Route exact path="/register" component={RegisterPage}/>
+            <Route exact path="/register" render={() => <RegisterPage hideShell={this.hideShell}/>}/>
             <Route exact path="/user" render={() => 
               <UserPage 
                 currentUser={this.state.currentUser} 
                 userCollection={this.state.userCollection} 
                 deleteUserPlant={this.deleteUserPlant} 
                 setUserCollection={this.setUserCollection}
+                hideShell={this.hideShell}
                 
                 // updateNickname={this.updateNickname}
                 />}/>
@@ -181,7 +184,7 @@ addToCollection = (plant) =>{
                 limit={this.state.limit}
                 plantLength={this.state.plants.length}
                 updateFilter={this.updateFilter}
-                
+                hideShell={this.hideShell}
               />
             )} />
             <Route component={NotFoundPage}/>
