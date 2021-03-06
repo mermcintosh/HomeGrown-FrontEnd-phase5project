@@ -50,15 +50,19 @@ class UserPage extends React.Component{
         .then(newNickname => {
           // this.props.updateNickname()
           const copyOfCurrentUserData = {...this.state.currentUserData}
-          const collections = copyOfCurrentUserData.collections.map(collection => {
-            if(collection.id === id) {
-              console.log(`the collection id is ${collection.id} and the nickname is ${plantNickname}`)
-              collection.nickname = plantNickname
-            }
-            return collection
-          })
+          console.log(copyOfCurrentUserData)
 
-          copyOfCurrentUserData.collections = collections
+          if(copyOfCurrentUserData.collections && copyOfCurrentUserData.collections.length > 0){
+            const collections = copyOfCurrentUserData.collections.map(collection => {
+              if(collection.id === id) {
+                console.log(`the collection id is ${collection.id} and the nickname is ${plantNickname}`)
+                collection.nickname = plantNickname
+              }
+              return collection
+            })
+  
+            copyOfCurrentUserData.collections = collections
+          }
           this.setState({
               currentUserData: copyOfCurrentUserData
           })
