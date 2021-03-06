@@ -31,7 +31,8 @@ class App extends React.Component{
   }
 
   autoLogin = ()=> {
-    this.setState({currentUser: ls.get("savedUser"), userCollection: ls.get("savedUser").collections})
+    const storageUser = ls.get("savedUser")
+    this.setState({currentUser: storageUser ? storageUser : null , userCollection: storageUser ? storageUser.collections : []})
   }
 
   updateCurrentUser = (user) => {
