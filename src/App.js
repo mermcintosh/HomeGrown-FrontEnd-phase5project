@@ -86,8 +86,8 @@ class App extends React.Component{
   }
   
   deleteUserPlant = (userPlant) => {
-    
-    this.setState({userCollection: this.state.userCollection.filter((filteredPlant) => filteredPlant.id !== userPlant)})
+    console.log(userPlant)
+    this.setState({userCollection: this.state.userCollection.filter((filteredPlant) => filteredPlant != userPlant)})
   }
 
   morePlants = () => {
@@ -100,6 +100,25 @@ updateFilter = (filter) => {
   console.log(filter)
   this.setState({filter})
 }
+
+// updateNickname = (userPlant) => {
+//   console.log(userPlant)
+//   // const copyOfCurrentUserData = {...this.state.currentUserData}
+//   //           const collections = copyOfCurrentUserData.collections.map(collection => {
+//   //             if(collection.id === id) {
+//   //               console.log(`the collection id is ${collection.id} and the nickname is ${plantNickname}`)
+//   //               collection.nickname = plantNickname
+//   //             }
+//   //             return collection
+//   //           })
+  
+//   //           copyOfCurrentUserData.collections = collections
+//   //           this.setState({
+//   //               currentUserData: copyOfCurrentUserData
+//   //           })
+//   //         }
+// }
+
 
 addToCollection = (plant) =>{
 
@@ -132,7 +151,14 @@ addToCollection = (plant) =>{
                   this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} setUserCollection={this.setUserCollection} /> : <Redirect to="/user"/>
                 )}/>
             <Route exact path="/register" component={RegisterPage}/>
-            <Route exact path="/user" render={() => <UserPage currentUser={this.state.currentUser} userCollection={this.state.userCollection} deleteUserPlant={this.deleteUserPlant} setUserCollection={this.setUserCollection}/>}/>
+            <Route exact path="/user" render={() => 
+              <UserPage 
+                currentUser={this.state.currentUser} 
+                userCollection={this.state.userCollection} 
+                deleteUserPlant={this.deleteUserPlant} 
+                setUserCollection={this.setUserCollection}
+                // updateNickname={this.updateNickname}
+                />}/>
             <Route path="/directory" render={(props) => (
               <DirectoryPage 
                 addToCollection={this.addToCollection} 

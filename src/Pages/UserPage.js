@@ -22,12 +22,13 @@ class UserPage extends React.Component{
     }
 
     deleteCollection = (collection) =>{
+      let plantCollection = collection
       fetch(CollectionsURL + collection.id, {
         method: "DELETE",
       })
       .then(res => res.json())
       .then((userPlant) => {
-        this.props.deleteUserPlant(userPlant)
+        this.props.deleteUserPlant(plantCollection)
       })
     }
 
@@ -47,6 +48,7 @@ class UserPage extends React.Component{
         fetch(CollectionsURL + id, reqPackage)
         .then(res => res.json())
         .then(newNickname => {
+          // this.props.updateNickname()
           const copyOfCurrentUserData = {...this.state.currentUserData}
           const collections = copyOfCurrentUserData.collections.map(collection => {
             if(collection.id === id) {
@@ -77,6 +79,7 @@ class UserPage extends React.Component{
             deleteCollection={this.deleteCollection}
             currentUserData={this.state.currentUserData}
             assignNickname={this.assignNickname}
+            deleteUserPlant={this.props.deleteUserPlant}
           />
         )}
         </div>

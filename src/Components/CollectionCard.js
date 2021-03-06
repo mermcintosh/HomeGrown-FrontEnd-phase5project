@@ -4,7 +4,7 @@ import EditForm from './EditForm'
 
 
 
-
+let CollectionsURL = "http://localhost:3000/collections/"
 
 
 class CollectionCard extends React.Component{
@@ -12,6 +12,17 @@ class CollectionCard extends React.Component{
   state={
     showForm: false
   }
+
+  //  deleteCollection = () =>{
+  //    let plant = this.props.collection.plant
+  //     fetch(CollectionsURL + this.props.collection.plant.id, {
+  //       method: "DELETE",
+  //     })
+  //     .then(res => res.json())
+  //     .then((userPlant) => {
+  //       this.props.deleteUserPlant(plant)
+  //     })
+  //   }
 
   handleShowForm = () => {
     this.setState({showForm: !this.state.showForm})
@@ -21,11 +32,12 @@ class CollectionCard extends React.Component{
     return (
       <div className="card">
         <h3>{this.props.collection.plant.name}</h3>
+        <h3>{this.props.collection.nickname}</h3>
         {/* {console.log(this.props.collection)} */}
         {/* wont show up on screen (the nickname above) */}
         {/* <h3>{this.props.collection.plant.category}</h3>
         <h3>{this.props.collection.plant.description}</h3>
-        <h3>{this.props.collection.nickname}</h3> */}
+        
         {/* <img src = {this.props.collection.plant_id.image}/>
         <h3>{this.props.collection.category}</h3>
         <h3>{this.props.collection.light}</h3>
@@ -37,7 +49,11 @@ class CollectionCard extends React.Component{
         <button onClick={this.handleShowForm}> Give my plant a nickname! </button>
         { this.state.showForm
             ?
-          <EditForm collection={this.props.collection} currentUserData={this.props.currentUserData} assignNickname={this.props.assignNickname}/>
+          <EditForm 
+            collection={this.props.collection} 
+            currentUserData={this.props.currentUserData} 
+            assignNickname={this.props.assignNickname}
+          />
             :
           null
         }
