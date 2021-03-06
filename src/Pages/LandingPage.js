@@ -21,9 +21,9 @@ class LandingPage extends React.Component{
       <div>
        <HeroLanding/>
        <Features/>
+       <Testimonials/>
        {/* <Services/> */}
        {/* <Gallery/> */}
-       {/* <Testimonials/> */}
        {/* <Team/> */}
        {/* <Contact/> */}
       </div>
