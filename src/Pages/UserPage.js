@@ -33,42 +33,7 @@ class UserPage extends React.Component{
       })
     }
 
-    assignNickname = (plantNickname, id) => {
-         let plantCollection = {
-            nickname: plantNickname
-        };
 
-        let reqPackage = {
-                    method: 'PATCH',
-                    headers: {
-                      "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(plantCollection)
-                  }
-
-        fetch(CollectionsURL + id, reqPackage)
-        .then(res => res.json())
-        .then(newNickname => {
-          // this.props.updateNickname()
-          const copyOfCurrentUserData = {...this.state.currentUserData}
-          console.log(copyOfCurrentUserData)
-
-          if(copyOfCurrentUserData.collections && copyOfCurrentUserData.collections.length > 0){
-            const collections = copyOfCurrentUserData.collections.map(collection => {
-              if(collection.id === id) {
-                console.log(`the collection id is ${collection.id} and the nickname is ${plantNickname}`)
-                collection.nickname = plantNickname
-              }
-              return collection
-            })
-  
-            copyOfCurrentUserData.collections = collections
-          }
-          this.setState({
-              currentUserData: copyOfCurrentUserData
-          })
-        })
-    }
   
     render(){
     return ( 
@@ -83,7 +48,7 @@ class UserPage extends React.Component{
             key={collection.id} 
             deleteCollection={this.deleteCollection}
             currentUserData={this.state.currentUserData}
-            assignNickname={this.assignNickname}
+            assignNickname={this.props.assignNickname}
             deleteUserPlant={this.props.deleteUserPlant}
           />
         )}

@@ -23,7 +23,6 @@ class App extends React.Component{
     users: [],
     plants: [],
     // collections: [],
-    currentUserData: [],
     searchText: "",
     limit: 0,
     filter: "All",
@@ -40,7 +39,22 @@ class App extends React.Component{
 
   autoLogin = ()=> {
     const storageUser = ls.get("savedUser")
-    this.setState({currentUser: storageUser ? storageUser : null , userCollection: storageUser ? storageUser.collections : []})
+
+    if(storageUser && storageUser.id) {
+        fetch(`http://localhost:3000/users/${storageUser.id}`)
+        .then(res => res.json())
+        .then(currentUserData => {
+          this.setState({
+            currentUser: storageUser ? storageUser : null ,
+            userCollection: currentUserData.collections
+          })
+      })
+    } else {
+      this.setState({
+          currentUser: null,
+          userCollection: []
+      })
+    }
   }
 
   updateCurrentUser = (user) => {
@@ -50,9 +64,45 @@ class App extends React.Component{
 
   setUserCollection = (collection) => {
     this.setState({
-      currentUser:collection,userCollection: collection.collections
+      currentUser: collection,
+      userCollection: collection.collections
     })
   }
+
+  assignNickname = (plantNickname, id) => {
+    
+    // Generate shape of item to send to server
+    let plantCollection = {
+       nickname: plantNickname
+   };
+
+
+   // Post request data
+   let reqPackage = {
+      method: 'PATCH',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(plantCollection)
+    }
+
+    // Hit the Server with our updates
+   fetch(CollectionsURL + id, reqPackage)
+   .then(res => res.json())
+   .then(newNickname => {
+     const copyOfCollection= [...this.state.userCollection]
+       copyOfCollection.map(collection => {
+         if(collection.id === id) {
+           collection.nickname = plantNickname
+         }
+         return collection
+       })
+     
+     this.setState({
+         userCollection: copyOfCollection
+     })
+   })
+}
   
   logOut = () => {
     ls.remove('savedUser')
@@ -170,6 +220,7 @@ addToCollection = (plant) =>{
                 deleteUserPlant={this.deleteUserPlant} 
                 setUserCollection={this.setUserCollection}
                 hideShell={this.hideShell}
+                assignNickname={this.assignNickname}
                 
                 // updateNickname={this.updateNickname}
                 />}/>
