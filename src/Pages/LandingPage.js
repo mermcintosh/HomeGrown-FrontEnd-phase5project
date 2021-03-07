@@ -3,7 +3,7 @@ import NavBar from '../Components/NavBar'
 import HeroLanding from '../Components/HeroLanding';
 // import Features from '../Components/Features';
 import Features from '../Components/Features';
-import Services from '../Components/Services';
+import KillPlant from '../Components/KillPlant';
 import Gallery from '../Components/Gallery';
 import Testimonials from '../Components/Testimonials';
 import Team from '../Components/Team';
@@ -22,10 +22,9 @@ class LandingPage extends React.Component{
        <HeroLanding/>
        <Features/>
        <Testimonials/>
-       {/* <Services/> */}
-       {/* <Gallery/> */}
-       {/* <Team/> */}
-       {/* <Contact/> */}
+       <Gallery/>
+       <KillPlant/>
+       <Contact/>
       </div>
     )
   }

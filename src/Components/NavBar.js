@@ -20,6 +20,7 @@ const styles = theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
     padding: "15px",
+    margin: 40
   },
 
   avatar: {
@@ -34,8 +35,10 @@ const styles = theme => ({
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
     color: 'white',
-    height: 48,
+    height: 60,
+    width: 150,
     padding: '0 30px',
+    fontSize: 20
   },
 
   toolbarTitle: {
