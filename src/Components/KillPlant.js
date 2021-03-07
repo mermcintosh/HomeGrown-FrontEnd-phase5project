@@ -8,12 +8,15 @@ const styles = theme => ({
       flexGrow: 1,
       margin: 80,
       padding: 200,
-      backgroundColor: '#79a67a',
+      backgroundImage: "url(https://images.unsplash.com/photo-1497990571654-77aa8ec36038?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2068&q=80)",
       fontSize: 60,
       color: "white",
       borderRadius: "4px",
       textAlign: "center",
-      fontFamily: "Barlow Condensed"
+      fontFamily: "Barlow Condensed",
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
 
     },
   });

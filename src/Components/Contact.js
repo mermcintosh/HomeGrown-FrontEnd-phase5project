@@ -17,6 +17,9 @@ const styles = theme => ({
       fontFamily: "Barlow Condensed"
     },
 
+    paper:{
+      textDecoration: "underline"
+    },
     // email:{
     //    fontWeight: "bold" 
     // },
@@ -38,8 +41,8 @@ const styles = theme => ({
               <Grid item xs={12} className={classes.paper}>
                 <h1>Contact Us</h1>
               </Grid>
-              <Grid itemxs={6} className={classes.contactInfo}>
-                  <h4>For any questions, concerns, or constructive ways for us to improve - send us an email to:</h4>
+              <Grid itemxs={6}>
+                  <h4 className={classes.contactStart}>For any questions, concerns, or constructive ways for us to improve - send us an email to:</h4>
                   <h3 className={classes.email}>contact@homegrown.com</h3>
                   <h5>or</h5>
                   <h3>(123) 456-7890</h3>
