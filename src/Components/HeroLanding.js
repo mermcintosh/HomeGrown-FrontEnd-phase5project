@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import { Parallax } from 'react-parallax';
+// import { Parallax } from 'react-parallax';
 
 const styles = theme => ({
 

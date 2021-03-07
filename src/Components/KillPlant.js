@@ -12,7 +12,9 @@ const styles = theme => ({
       fontSize: 60,
       color: "white",
       borderRadius: "4px",
-      textAlign: "center"
+      textAlign: "center",
+      fontFamily: "Barlow Condensed"
+
     },
   });
 

@@ -38,7 +38,7 @@ const styles = theme => ({
     height: 60,
     width: 150,
     padding: '0 30px',
-    fontSize: 20
+    fontSize: 15
   },
 
   toolbarTitle: {
@@ -76,7 +76,6 @@ class NavBar extends React.Component{
           noWrap
           className={classes.toolbarTitle}
         >
-          put something here that can be visible on everypage but main page
         </Typography>
         <IconButton>
           <SearchIcon />

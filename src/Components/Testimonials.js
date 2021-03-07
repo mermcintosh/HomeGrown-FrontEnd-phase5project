@@ -9,7 +9,8 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     color: '#f0f7ed',
-    margin: 50
+    margin: 50,
+    fontFamily: "Barlow Condensed"
   },
 
   feature: {

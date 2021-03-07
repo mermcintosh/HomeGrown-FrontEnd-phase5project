@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    margin: 40
+    margin: 40,
+    fontFamily: "Barlow Condensed"
   },
   
 //   cards:{

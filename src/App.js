@@ -190,7 +190,7 @@ addToCollection = (plant) =>{
             <Route component={NotFoundPage}/>
           </Switch>
         <Router/>
-        <Footer/>
+        {/* <Footer/> */}
     </Fragment>
   )
 }}

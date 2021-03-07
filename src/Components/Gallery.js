@@ -11,6 +11,7 @@ const styles = theme => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+    fontFamily: "Barlow Condensed"
   },
   joy:{
     fontSize: 100,
