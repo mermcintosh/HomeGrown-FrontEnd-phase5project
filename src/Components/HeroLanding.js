@@ -24,7 +24,7 @@ const styles = theme => ({
     marginLeft: 42,
     marginRight: 40,
     marginBottom:20,
-    height: "45vh"
+    height: "88vh"
   },
   overlay: {
     position: 'absolute',

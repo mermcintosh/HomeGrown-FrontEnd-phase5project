@@ -75,7 +75,7 @@ const styles = theme => ({
   },
 
   nav: {
-    background: 'linear-gradient(45deg, #79a67a 30%, #25853f 90%)',
+    background: 'linear-gradient(45deg, #79a67a 30%, #3e8754 90%)',
     padding: 15,
     marginBottom: 20
   },

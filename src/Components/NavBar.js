@@ -44,15 +44,13 @@ const styles = theme => ({
     width: 150,
     padding: '0 30px',
     fontSize: 15,
-   
-  
   },
 
 
   toolbarTitle: {
     flex: 1,
     fontSize: 70,
-    maxWidth: 4000
+    maxWidth: 5000
   },
 
   toolbarSecondary: {

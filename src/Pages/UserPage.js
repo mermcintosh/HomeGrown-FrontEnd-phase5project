@@ -7,14 +7,65 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { CardMedia } from '@material-ui/core';
+import { ArrowRight } from '@material-ui/icons';
+
 
 let CollectionsURL = "http://localhost:3000/collections/"
 
 const styles = theme => ({
+  buttons: {
+    margin: theme.spacing(3, 0, 2),
+    background: 'linear-gradient(45deg, #eaf7dc 30%, #79a67a 90%)',
+    // '&:hover': {
+    //   backgroundColor: 'linear-gradient(45deg,#79a67a 30%, #79a67a 90%)',
+    // },
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
+    // color: '#25853f',
+    height: 60,
+    width: 150,
+    padding: '0 30px',
+    fontSize: 15,
+    float: "right"
+
+  },
+
+  // card: {
+  //   color: "white"
+  // },
 
   container: {
-    backgroundColor: '#6a946b',
-    height: "100vh"
+    marginTop: 200,
+    paddingTop: 300,
+    backgroundColor: '#79a67a',
+    height: "100vh",
+    borderRadius: "50px 50px 1px 1px",
+    overflow: "auto"
+  },
+  userImage:{
+    marginTop:100,
+    borderRadius: "50%",
+    width: 650,
+    height: 625,
+    display: "block",
+    backgroundPosition: "center",
+    backgroundSize: "auto 80px",
+    // textAlign: 'center',
+    objectFit: 'cover',
+    marginBottom: -470,
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+
+  div: {
+    fontSize: 90,
+    color: "white",
+    fontFamily: "Barlow Condensed",
+    paddingLeft: 70,
+    marginTop: -200,
   }
 })
 
@@ -52,14 +103,34 @@ class UserPage extends React.Component{
     render(){
       const {classes} = this.props
     return ( 
-
+      
       <React.Fragment>
+        {this.props.currentUser ?
+        <div>
       <CssBaseline />
+      <img className={classes.userImage} src="https://images.unsplash.com/photo-1529340376075-067b25b3d7fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"/>
       <Container className={classes.container} maxWidth="xl" >
-        <Typography component="div" >
+        <Typography component="div" className={classes.div}>
           Hello, {this.props.currentUser.username}
           </Typography>
-      </Container>
+          <Button component={Link} className={classes.buttons} to="/directory">Add Plant</Button>
+          {this.props.userCollection.map(collection => 
+          <CollectionCard
+            collection={collection} 
+            key={collection.id} 
+            deleteCollection={this.deleteCollection}
+            currentUserData={this.state.currentUserData}
+            assignNickname={this.props.assignNickname}
+            deleteUserPlant={this.props.deleteUserPlant}
+          />
+          )}
+          </Container>
+        </div>
+        :
+        <Typography component="div">
+          Please login to see your Plant Collection
+        </Typography>
+    }
       </React.Fragment>
     
     )

@@ -127,24 +127,24 @@
 
 //userpage code in between the return ()
 
-  <div>
+//   <div>
       
-      {this.props.currentUser ?
-        <div>
-        <h1>Hello, {this.props.currentUser.username}</h1>
-        <button><Link to="/directory">Add a new plant to my collection!</Link></button>
-        {this.props.userCollection.map(collection => 
-          <CollectionCard 
-            collection={collection} 
-            key={collection.id} 
-            deleteCollection={this.deleteCollection}
-            currentUserData={this.state.currentUserData}
-            assignNickname={this.props.assignNickname}
-            deleteUserPlant={this.props.deleteUserPlant}
-          />
-        )}
-        </div>
-        :
-        <h1>Please login to see your Plant Collection!</h1>
-      }
-      </div>
+//       {this.props.currentUser ?
+//         <div>
+//         <h1>Hello, {this.props.currentUser.username}</h1>
+//         <button><Link to="/directory">Add a new plant to my collection!</Link></button>
+//         {this.props.userCollection.map(collection => 
+//           <CollectionCard 
+//             collection={collection} 
+//             key={collection.id} 
+//             deleteCollection={this.deleteCollection}
+//             currentUserData={this.state.currentUserData}
+//             assignNickname={this.props.assignNickname}
+//             deleteUserPlant={this.props.deleteUserPlant}
+//           />
+//         )}
+//         </div>
+//         :
+//         <h1>Please login to see your Plant Collection!</h1>
+//       }
+//       </div>
