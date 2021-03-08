@@ -2,8 +2,21 @@ import React from 'react';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import CollectionCard from '../Components/CollectionCard'
 import EditForm from '../Components/EditForm'
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import {withStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 let CollectionsURL = "http://localhost:3000/collections/"
-// import UserSideBar from "../Components/UserSideBar"
+
+const styles = theme => ({
+
+  container: {
+    backgroundColor: '#6a946b',
+    height: "100vh"
+  }
+})
 
 class UserPage extends React.Component{
 
@@ -37,31 +50,21 @@ class UserPage extends React.Component{
 
   
     render(){
+      const {classes} = this.props
     return ( 
-      <div>
-      
-      {this.props.currentUser ?
-        <div>
-        <h1>Hello, {this.props.currentUser.username}</h1>
-        <button><Link to="/directory">Add a new plant to my collection!</Link></button>
-        {this.props.userCollection.map(collection => 
-          <CollectionCard 
-            collection={collection} 
-            key={collection.id} 
-            deleteCollection={this.deleteCollection}
-            currentUserData={this.state.currentUserData}
-            assignNickname={this.props.assignNickname}
-            deleteUserPlant={this.props.deleteUserPlant}
-          />
-        )}
-        </div>
-        :
-        <h1>Please login to see your Plant Collection!</h1>
-      }
-      </div>
+
+      <React.Fragment>
+      <CssBaseline />
+      <Container className={classes.container} maxWidth="xl" >
+        <Typography component="div" >
+          Hello, {this.props.currentUser.username}
+          </Typography>
+      </Container>
+      </React.Fragment>
+    
     )
 
 
   }}
   
-  export default UserPage;
+  export default withStyles(styles)(UserPage)

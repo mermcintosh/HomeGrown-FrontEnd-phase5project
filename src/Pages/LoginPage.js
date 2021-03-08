@@ -31,7 +31,7 @@ const styles = theme => ({
     backgroundPosition: 'center',
   },
   paper: {
-    marginTop: 470,
+    marginTop: 375,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -93,7 +93,12 @@ class LoginPage extends React.Component{
       })
     }).then(res => res.json())
     .then(userData => {
-      this.props.updateCurrentUser(userData)
+      if (userData.error) {
+        console.log(userData.error)
+      }
+      else{
+        this.props.updateCurrentUser(userData)
+      }
     })
   }
   

@@ -17,12 +17,12 @@ const styles = theme => ({
 
   },
 
-  // background: {
-  //   backgroundImage: 'url(https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8cGxhbnRzfGVufDB8MHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)',
-  //   backgroundSize: 'cover',
-  //   backgroundRepeat: 'no-repeat',
-  //   backgroundPosition: 'center',
-  // },
+ background: {
+    backgroundImage: 'url(https://images.unsplash.com/photo-1477554193778-9562c28588c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  }, 
 
   buttons: {
     margin: theme.spacing(3, 0, 2),
@@ -37,6 +37,12 @@ const styles = theme => ({
     fontSize: 15,
     // objectAlign: "right"
   },
+
+  title:{
+    textAlign: "left",
+    padding: 40,
+    fontSize: 45
+  }
 });
 
 class DirectoryPage extends React.Component{
@@ -49,7 +55,7 @@ class DirectoryPage extends React.Component{
       const {classes} = this.props;
     return (
       <div className={classes.background}>
-       <h1>Find your next plant here!</h1>
+       {/* <h1 className={classes.title}>Find your next plant here!</h1> */}
         <Search changeSearch={this.props.changeSearch} updateFilter={this.props.updateFilter} />
         <br/>
         <Grid container spacing={4} className={classes.gridContainer} justify="center">

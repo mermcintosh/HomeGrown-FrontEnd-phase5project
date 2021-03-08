@@ -30,7 +30,7 @@ const styles = theme => ({
     backgroundPosition: 'center',
   },
   paper: {
-    marginTop: 470,
+    marginTop: 375,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

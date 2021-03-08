@@ -17,9 +17,14 @@ const styles = theme => ({
     backgroundImage: 'url(https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    padding: 225,
-    margin: 40,
+    backgroundPosition: '60% 40%',
+    paddingTop: 275,
+    paddingBottom: 275,
+    paddingLeft:50,
+    marginLeft: 42,
+    marginRight: 40,
+    marginBottom:20,
+    height: "45vh"
   },
   overlay: {
     position: 'absolute',
@@ -27,7 +32,7 @@ const styles = theme => ({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: 'rgba(0,0,0,.2)',
+    backgroundColor: 'rgba(0,0,0,.1)',
   },
   mainFeaturedPostContent: {
     position: 'relative',
@@ -39,18 +44,18 @@ const styles = theme => ({
   },
 
   title: {
-      fontSize: 250,
+      fontSize: 300,
       textAlign: "center",
-      padding: theme.spacing(3),
-      [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
-      paddingRight: 0,
-    },
+    //   padding: theme.spacing(3),
+    //   [theme.breakpoints.up('md')]: {
+    //   padding: theme.spacing(6),
+    //   paddingRight: 0,
+    // },
 
   },
 
 subtitle: {
-    fontSize: 100,
+    fontSize: 150,
     padding: theme.spacing(3),
       [theme.breakpoints.up('md')]: {
       padding: theme.spacing(6),
@@ -80,7 +85,7 @@ class HeroLanding extends React.Component{
             </Typography>
             <br/>
             <Typography className={classes.subTitle} variant="h3" color="inherit" style={{ fontFamily: 'Quicksand' }}>
-              HomeGrown was established in 2021 in hopes that the more time we are spending at home, the more time we will love and care on our green family. 
+              HomeGrown was established in 2021 in hopes that the more time you are spending at home, the more time you will love and care for your green family. 
             </Typography>
           </div>
         </Grid>

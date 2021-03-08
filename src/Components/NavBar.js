@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import {fade, withStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -18,7 +18,11 @@ const styles = theme => ({
   toolbar: {
     // border: `1px solid ${theme.palette.divider}`,
     // padding: "20px",
-    margin: 40
+    // margin: 20,
+    marginTop: "5px",
+  marginBottom: "15px",
+  marginRight: "20px",
+  marginLeft: "20px"
   },
 
   avatar: {
@@ -29,6 +33,9 @@ const styles = theme => ({
   buttons: {
     margin: theme.spacing(3, 0, 2),
     background: 'linear-gradient(45deg, #79a67a 30%, #25853f 90%)',
+    // '&:hover': {
+    //   backgroundColor: 'linear-gradient(45deg, #25853f 30%, #79a67a 90%)',
+    // },
     border: 0,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
@@ -37,13 +44,15 @@ const styles = theme => ({
     width: 150,
     padding: '0 30px',
     fontSize: 15,
-    // objectAlign: "right"
+   
+  
   },
 
 
   toolbarTitle: {
     flex: 1,
-    fontSize: 70
+    fontSize: 70,
+    maxWidth: 4000
   },
 
   toolbarSecondary: {
@@ -97,7 +106,7 @@ class NavBar extends React.Component{
         
         &nbsp;&nbsp;&nbsp;
         {this.props.currentUser ? 
-
+        
         <Button onClick={this.props.logOut} component={Link} to="/thankyou" className={classes.buttons} variant="outlined" size="small">
           Sign out
         </Button>
