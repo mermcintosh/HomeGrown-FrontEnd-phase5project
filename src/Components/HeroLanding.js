@@ -18,7 +18,7 @@ const styles = theme => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    padding: 200,
+    padding: 225,
     margin: 40,
   },
   overlay: {
@@ -27,7 +27,7 @@ const styles = theme => ({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: 'rgba(0,0,0,.3)',
+    backgroundColor: 'rgba(0,0,0,.2)',
   },
   mainFeaturedPostContent: {
     position: 'relative',
@@ -76,11 +76,11 @@ class HeroLanding extends React.Component{
         <Grid item md={6}>
           <div className={classes.mainFeaturedPostContent}>
             <Typography className={classes.title} component="h1" variant="h3" color="inherit" style={{ fontFamily: 'Vidaloka' }}>
-             Homegrown
+             HomeGrown
             </Typography>
             <br/>
             <Typography className={classes.subTitle} variant="h3" color="inherit" style={{ fontFamily: 'Quicksand' }}>
-              Homegrown was established in 2021 in hopes that the more time we are spending at home, the more time we will love and care on our green family. 
+              HomeGrown was established in 2021 in hopes that the more time we are spending at home, the more time we will love and care on our green family. 
             </Typography>
           </div>
         </Grid>

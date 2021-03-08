@@ -10,6 +10,7 @@ import UserPage from './Pages/UserPage.js'
 import DirectoryPage from './Pages/DirectoryPage.js'
 import Footer from './Components/Footer.js'
 import NotFoundPage from './Pages/NotFoundPage'
+import Thankyou from "./Components/Thankyou"
 import ls from 'local-storage'
 
 let PlantsURL = "http://localhost:3000/plants" 
@@ -213,6 +214,7 @@ addToCollection = (plant) =>{
                   this.state.currentUser == null ? <LoginPage updateCurrentUser={this.updateCurrentUser} setUserCollection={this.setUserCollection} hideShell={this.hideShell}/> : <Redirect to="/user"/>
                 )}/>
             <Route exact path="/register" render={() => <RegisterPage hideShell={this.hideShell}/>}/>
+            <Route exact path="/thankyou" component={Thankyou}/>
             <Route exact path="/user" render={() => 
               <UserPage 
                 currentUser={this.state.currentUser} 

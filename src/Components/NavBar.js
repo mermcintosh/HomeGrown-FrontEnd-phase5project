@@ -40,6 +40,7 @@ const styles = theme => ({
     // objectAlign: "right"
   },
 
+
   toolbarTitle: {
     flex: 1,
     fontSize: 70
@@ -97,7 +98,7 @@ class NavBar extends React.Component{
         &nbsp;&nbsp;&nbsp;
         {this.props.currentUser ? 
 
-        <Button onClick={this.props.logOut} component={Link} to="/" className={classes.buttons} variant="outlined" size="small">
+        <Button onClick={this.props.logOut} component={Link} to="/thankyou" className={classes.buttons} variant="outlined" size="small">
           Sign out
         </Button>
         :
