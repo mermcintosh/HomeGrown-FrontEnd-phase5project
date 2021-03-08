@@ -19,6 +19,7 @@ import Container from '@material-ui/core/Container';
 const styles = theme => ({
   root: {
     height: '100vh',
+    // textAlign: "center"
   },
 
   image: {
@@ -30,7 +31,7 @@ const styles = theme => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    marginTop: 470,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -41,8 +42,12 @@ const styles = theme => ({
     backgroundColor: "#91c292",
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    // alignItems: "center",
+    // justify: "center"
+    // textAlign: "center"
+    // display: "inline-block"
+    
   },
   submit: {
     margin: theme.spacing(3, 0, 2),

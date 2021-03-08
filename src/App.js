@@ -126,7 +126,7 @@ class App extends React.Component{
   
   backPlants = () => {
     this.setState({
-      limit: this.state.limit - 4
+      limit: this.state.limit - 8
     }) 
   }
   
@@ -151,7 +151,7 @@ class App extends React.Component{
 
   morePlants = () => {
     this.setState({
-      limit: this.state.limit + 4
+      limit: this.state.limit + 8
     }) 
   }
 

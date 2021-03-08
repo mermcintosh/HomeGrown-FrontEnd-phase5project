@@ -8,7 +8,23 @@ import Gallery from '../Components/Gallery';
 import Testimonials from '../Components/Testimonials';
 import Team from '../Components/Team';
 import Contact from '../Components/Contact'; 
+import { CallMissedSharp } from '@material-ui/icons';
+// import { withStyles } from '@material-ui/core/styles';
 
+
+// const styles = theme => ({
+
+//   parallax: {
+//     /* Set a specific height */
+//   minHeight: 500, 
+
+//   /* Create the parallax scrolling effect */
+//   backgroundAttachment: "fixed",
+//   backgroundPosition: "center",
+//   backgroundRepeat: "no-repeat",
+//   backgroundSize: "cover",
+//   }
+// })
 
 
 class LandingPage extends React.Component{
@@ -17,8 +33,9 @@ class LandingPage extends React.Component{
     this.props.hideShell(false)
   }
     render(){
+      // const {classes} = this.props
     return (
-      <div>
+      <div >
        <HeroLanding/>
        <Features/>
        <KillPlant/>
@@ -29,8 +46,9 @@ class LandingPage extends React.Component{
     )
   }
 }
-  
-  export default LandingPage;
+// className={classes.parallax}
+  // export default withStyles(styles)(LandingPage);
+  export default LandingPage
 
 
  

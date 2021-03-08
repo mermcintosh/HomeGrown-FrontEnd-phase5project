@@ -3,11 +3,12 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import CollectionCard from '../Components/CollectionCard'
 import EditForm from '../Components/EditForm'
 let CollectionsURL = "http://localhost:3000/collections/"
+// import UserSideBar from "../Components/UserSideBar"
 
 class UserPage extends React.Component{
+
   state = {
     currentUserData: [],
-    
   }
 
     componentDidMount(){
@@ -38,6 +39,7 @@ class UserPage extends React.Component{
     render(){
     return ( 
       <div>
+      
       {this.props.currentUser ?
         <div>
         <h1>Hello, {this.props.currentUser.username}</h1>

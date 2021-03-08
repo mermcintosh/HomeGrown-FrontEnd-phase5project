@@ -22,7 +22,7 @@ const styles = theme => ({
   },
 
   image: {
-    backgroundImage: 'url(https://www.venuereport.com/media/cache/resolve/venue_roundup_single_image_flex/uploads/+0Regular_Roundup/2018/3-March/PlantShops/FancyFreeNursery-annastamatic-01.jpg)',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1601985705806-5b9a71f6004f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -30,7 +30,7 @@ const styles = theme => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    marginTop: 470,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

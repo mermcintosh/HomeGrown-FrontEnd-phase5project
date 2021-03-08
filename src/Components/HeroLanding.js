@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-// import { Parallax } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 
 const styles = theme => ({
 
@@ -58,9 +58,7 @@ subtitle: {
     },
     textAlign: "center"
 }
-    
-     
-  
+      
 });
 
 class HeroLanding extends React.Component{
@@ -69,6 +67,7 @@ class HeroLanding extends React.Component{
 //   const { post } = props;
 
   return (
+    
     <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80)` }}>
       {/* Increase the priority of the hero background image */}
       {<img style={{ display: 'none' }} src={`url(https://images.unsplash.com/photo-1497990571654-77aa8ec36038?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHBsYW50c3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)`} alt={"plant image"} />}

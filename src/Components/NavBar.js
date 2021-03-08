@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 // import Link from '@material-ui/core/Link';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
@@ -18,8 +16,8 @@ import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
 
 const styles = theme => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    padding: "15px",
+    // border: `1px solid ${theme.palette.divider}`,
+    // padding: "20px",
     margin: 40
   },
 
@@ -38,11 +36,13 @@ const styles = theme => ({
     height: 60,
     width: 150,
     padding: '0 30px',
-    fontSize: 15
+    fontSize: 15,
+    // objectAlign: "right"
   },
 
   toolbarTitle: {
     flex: 1,
+    fontSize: 70
   },
 
   toolbarSecondary: {
@@ -68,6 +68,7 @@ class NavBar extends React.Component{
       <Avatar >
         <Home color="white" />
           </Avatar>
+          {this.props.currentUser ?
         <Typography
           component="h2"
           variant="h5"
@@ -75,13 +76,28 @@ class NavBar extends React.Component{
           align="center"
           noWrap
           className={classes.toolbarTitle}
+          style={{ fontFamily: 'Vidaloka' }}
         >
+          HomeGrown
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
+        :
+        <Typography
+        component="h2"
+        variant="h5"
+        color="inherit"
+        align="center"
+        noWrap
+        className={classes.toolbarTitle}
+        style={{ fontFamily: 'Vidaloka' }}
+      >
+       
+      </Typography>
+        }
+        
         &nbsp;&nbsp;&nbsp;
-        {this.props.currentUser ? <Button onClick={this.props.logOut} component={Link} to="/" className={classes.buttons} variant="outlined" size="small">
+        {this.props.currentUser ? 
+
+        <Button onClick={this.props.logOut} component={Link} to="/" className={classes.buttons} variant="outlined" size="small">
           Sign out
         </Button>
         :

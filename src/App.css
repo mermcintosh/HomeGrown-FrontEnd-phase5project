@@ -32,7 +32,7 @@ button:hover {
   text-align: center;
   border: grey solid 1px;
   padding: 1rem;
-  width: auto;
+  max-width: auto;
   height: auto;
   display: flex;
   margin: 1rem 2rem;
