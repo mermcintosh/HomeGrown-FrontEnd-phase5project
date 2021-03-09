@@ -130,7 +130,7 @@ class HeroLanding extends React.Component{
     // </Paper>
 
     <div className="App">
-      <Parallax style={homegrownImage} bgImage={image1} strength={-250}>
+      <Parallax style={homegrownImage} bgImage={image1} strength={500}>
       <div className={classes.overlay}>
        <Grid container>
          <Grid item md={6}>
