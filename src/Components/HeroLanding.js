@@ -32,7 +32,7 @@ const styles = theme => ({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: 'rgba(0,0,0,.1)',
+    backgroundColor: 'rgba(0,0,0,.2)',
     height: "100vh"
   },
   mainFeaturedPostContent: {
@@ -58,15 +58,18 @@ const styles = theme => ({
   },
 
 subtitle: {
-    fontSize: 150,
-    padding: theme.spacing(3),
-      [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
-      paddingLeft: 0,
-    },
-    textAlign: "center",
+    fontSize: 45,
+    // padding: theme.spacing(3),
+    //   [theme.breakpoints.up('md')]: {
+    //   padding: theme.spacing(6),
+    //   paddingLeft: 0,
+    // },
+    // textAlign: "center",
     fontFamily: "Barlow Condensed",
-    // color: "white"
+    color: "white",
+    paddingLeft: 60,
+    letterSpacing: "3px",
+    lineHeight: "1.5"
 },
       
 });
@@ -135,12 +138,12 @@ class HeroLanding extends React.Component{
        <Grid container>
          <Grid item md={6}>
            <div className={classes.mainFeaturedPostContent}>
-             <Typography className={classes.title} component="h1" variant="h3" color="inherit" style={{ fontFamily: 'Vidaloka' }}>
+             <Typography className={classes.title} component="h1" variant="h3" style={{ fontFamily: 'Vidaloka' }}>
               HomeGrown
              </Typography>
              <br/>
-             <Typography className={classes.subtitle} variant="h3" color="inherit" style={{ fontFamily: 'Quicksand' }}>
-               HomeGrown was established in 2021 in hopes that the more time you are spending at home, the more time you will love and care for your green family. 
+             <Typography className={classes.subtitle} variant="h3">
+               HomeGrown was established in 2021 in hopes that the more time you are spending at home, the more time you will love and care for your favorite plants. We are here to ensure quality care for any plant that enters your home. 
              </Typography>
            </div>
          </Grid>

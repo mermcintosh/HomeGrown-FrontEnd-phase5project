@@ -1,15 +1,7 @@
-
-
-  
-//from line 164 onClick={this.handleShowForm}
-
-
-
-
-
-  import React from 'react'
+import React from 'react'
 import { Route, Link, Redirect, BrowserRouter as Router } from 'react-router-dom'
 import EditForm from './EditForm'
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { withStyles } from '@material-ui/core/styles';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -24,12 +16,73 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
+
 
 let CollectionsURL = "http://localhost:3000/collections/"
 
-// const styles = (them) => ({
+const styles = (theme) => ({
 
-// })
+  buttons: {
+    margin: theme.spacing(3, 0, 2),
+    // background: 'linear-gradient(45deg, #79a67a 30%, #25853f 90%)',
+    // '&:hover': {
+    //   backgroundColor: 'linear-gradient(45deg, #25853f 30%, #79a67a 90%)',
+    // },
+    border: 0,
+    borderRadius: "5%",
+    boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
+    color: '#25853f',
+    height: 60,
+    width: 150,
+    padding: '0 30px',
+    fontSize: 15,
+    
+    // align: "right",
+  },
+
+  buttonGroup: {
+    justifyContent: "center"
+  },
+
+  card: {
+    textAlign: "center",
+    border: "grey solid 1px",
+    padding: "1rem",
+    width: "35rem",
+    height: "40rem",
+    display: "inline-grid",
+    margin: "1 rem 2 rem",
+    boxShadow: "3px 10px #6f8f78",
+    fontFamily: "Barlow Condensed",
+    letterSpacing: "2px",
+    backgroundColor: "white",
+    margin: 20,
+    marginTop: 50,
+    borderRadius: "15%"
+  },
+
+  image: {
+    justifySelf: "center",
+    height: "12rem",
+    width: "12 rem"
+  },
+
+  name: {
+    fontSize: 45,
+    marginBottom: 0,
+    lineHeight: "45px"
+  },
+
+  nickname: {
+    marginTop: 0,
+    fontSize: 35,
+    color: "#474a47",
+    fontStyle: "italic"
+  }
+
+})
 
 class CollectionCard extends React.Component{
 
@@ -50,16 +103,18 @@ class CollectionCard extends React.Component{
 
   handleShowForm = () => {
     this.setState({showForm: !this.state.showForm})
-    // console.log(this.state.showForm)
   }
     render(){
+      const {classes} = this.props
     return (
-      <div className="card">
-        <h3>{this.props.collection.plant.name}</h3>
-        <h3>{this.props.collection.nickname}</h3>
+      <div className={classes.card}>
+        <h3 className={classes.name}>{this.props.collection.plant.name}</h3>
+        <h3 className={classes.nickname}>"{this.props.collection.nickname}"</h3>
+        <img className={classes.image} src={this.props.collection.plant.image}/>
         {/* {console.log(this.props.collection)} */}
         {/* wont show up on screen (the nickname above) */}
         {/* <h3>{this.props.collection.plant.category}</h3>
+  
         <h3>{this.props.collection.plant.description}</h3>
         
         {/* <img src = {this.props.collection.plant_id.image}/>
@@ -67,10 +122,12 @@ class CollectionCard extends React.Component{
         <h3>{this.props.collection.light}</h3>
         <h3>{this.props.collection.watering}</h3>
         <h3>{this.props.collection.soil}</h3> */}
-        <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button>
+        <ButtonGroup className={classes.buttonGroup}aria-label="outlined primary button group">
+        <Button className={classes.buttons}>More</Button>
+        <Button className={classes.buttons} onClick={() => this.props.deleteCollection(this.props.collection)}>Delete</Button>
         {/* <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button> */}
 
-        <button onClick={this.handleShowForm}> Give my plant a nickname! </button>
+        <Button className={classes.buttons} onClick={this.handleShowForm}> Nickname</Button>
         { this.state.showForm
             ?
           <EditForm 
@@ -82,12 +139,23 @@ class CollectionCard extends React.Component{
           null
         }
 
+        
+    </ButtonGroup>
       </div>
     )
   }}
 
   
-  export default CollectionCard;
+  export default withStyles(styles)(CollectionCard);
+
+
+//   <ButtonGroup color="primary" aria-label="outlined primary button group">
+//   <Button>One</Button>
+//   <Button>Two</Button>
+//   <Button>Three</Button>
+// </ButtonGroup>
+
+
 
 
 

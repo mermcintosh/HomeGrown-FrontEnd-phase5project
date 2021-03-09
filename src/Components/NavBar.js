@@ -11,6 +11,7 @@ import RegisterPage from '../Pages/RegisterPage.js'
 import Avatar from '@material-ui/core/Avatar';
 import Home from '@material-ui/icons/Home';
 import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 
 
@@ -44,13 +45,17 @@ const styles = theme => ({
     width: 150,
     padding: '0 30px',
     fontSize: 15,
+    // align: "right",
+
   },
 
 
   toolbarTitle: {
     flex: 1,
+    paddingLeft: 140,
+    // paddingRight: 800,
     fontSize: 70,
-    maxWidth: 5000
+    // textAlign: "center"
   },
 
   toolbarSecondary: {
@@ -73,9 +78,10 @@ class NavBar extends React.Component{
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-      <Avatar >
-        <Home color="white" />
-          </Avatar>
+      <Button component={Link} to="/"><Avatar >
+          <Home color="white"/>
+            </Avatar>
+        </Button>
           {this.props.currentUser ?
         <Typography
           component="h2"

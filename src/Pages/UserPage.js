@@ -135,11 +135,11 @@ class UserPage extends React.Component{
       <CssBaseline />
       <img className={classes.userImage} src="https://images.unsplash.com/photo-1529340376075-067b25b3d7fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"/>
       <Container className={classes.container} maxWidth="xl" >
-        <Typography component="div" className={classes.div}>
+        <div><Typography component="div" className={classes.div}>
           Hello, {this.props.currentUser.username}
           </Typography>
           <Button component={Link} className={classes.buttons} to="/directory">Add Plant</Button>
-          
+          </div>
           {this.props.userCollection.map(collection => 
           <CollectionCard
             collection={collection} 
