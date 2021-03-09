@@ -76,7 +76,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs(props) {
+export default function DirectoryCard(props) {
 
   const classes = styles
 
@@ -116,6 +116,10 @@ export default function CustomizedDialogs(props) {
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {props.plant.name}
         </DialogTitle>
+        <CardMedia
+        // component="img" src={props.collection.plant.image}
+        className={classes.media}
+        />
         <DialogContent dividers>
           <Typography gutterBottom>
            Type - {props.plant.category}
