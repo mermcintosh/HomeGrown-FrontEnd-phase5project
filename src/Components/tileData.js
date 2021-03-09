@@ -66,6 +66,22 @@ const tileData = [
         img: 'https://images.unsplash.com/photo-1585962485475-e411a40a1a6b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80',
         title: 'woman + tree',
       },
+      {
+        img: 'https://images.unsplash.com/photo-1459156212016-c812468e2115?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1249&q=80',
+        title: 'succulents',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1495908333425-29a1e0918c5f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1700&q=80',
+        title: 'holding three plants',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1524247108137-732e0f642303?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80',
+        title: 'people gardening',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1528467279403-46af96c37ab3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80',
+        title: 'woman watering',
+      },
 
   ];
   
