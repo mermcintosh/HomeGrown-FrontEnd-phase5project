@@ -33,7 +33,9 @@ const styles = (theme) => ({
   },
 
   media: {
-    height: 300,
+    justifySelf: "center",
+    height: "12rem",
+    width: "12 rem"
   },
 
   gridList: {
@@ -44,7 +46,7 @@ const styles = (theme) => ({
   },
 
   title: {
-    fontSize: 50
+    fontSize: "10rem"
   },
 });
 

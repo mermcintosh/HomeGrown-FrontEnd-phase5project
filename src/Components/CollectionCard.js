@@ -18,6 +18,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import Slide from '@material-ui/core/Slide';
+
 
 
 
@@ -120,11 +123,16 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//   return <Slide direction="up" ref={ref} {...props} />;
+// });
+
 class CollectionCard extends React.Component{
 
   state={
     showForm: false,
-    open: false
+    open:false,
+    alertOpen: false,
   }
 
   handleClickOpen = ()=> {
@@ -139,6 +147,18 @@ class CollectionCard extends React.Component{
     })
   }
 
+  handleAlertOpen = () => {
+    this.setState({
+      alertOpen:true
+    })
+  }
+
+  handleAlertClose = () => {
+    this.setState({
+      alertOpen:false
+    })
+  }
+
   handleShowForm = () => {
     this.setState({showForm: !this.state.showForm})
   }
@@ -149,24 +169,33 @@ class CollectionCard extends React.Component{
         <h3 className={classes.name}>{this.props.collection.plant.name}</h3>
         <h3 className={classes.nickname}>{this.props.collection.nickname}</h3>
         <img className={classes.image} src={this.props.collection.plant.image}/>
-        {/* {console.log(this.props.collection)} */}
-        {/* wont show up on screen (the nickname above) */}
-        {/* <h3>{this.props.collection.plant.category}</h3>
-  
-        <h3>{this.props.collection.plant.description}</h3>
-        
-        {/* <img src = {this.props.collection.plant_id.image}/>
-        <h3>{this.props.collection.category}</h3>
-        <h3>{this.props.collection.light}</h3>
-        <h3>{this.props.collection.watering}</h3>
-        <h3>{this.props.collection.soil}</h3> */}
+       
         <ButtonGroup className={classes.buttonGroup}aria-label="outlined primary button group">
         <Button className={classes.buttons} onClick={this.handleClickOpen}>More</Button>
-        <Button className={classes.buttons} onClick={() => this.props.deleteCollection(this.props.collection)}>Delete</Button>
-        {/* <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button> */}
+        <Button className={classes.buttons} onClick={this.handleAlertOpen}>Delete</Button>
+        {/* <Button className={classes.buttons} onClick={() => this.props.deleteCollection(this.props.collection)} >Delete</Button> */}
 
-        
+        {/* <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button> */} 
     </ButtonGroup>
+
+    <Dialog
+        onClose={this.handleAlertClose}
+        open={this.state.alertOpen}
+        TransitionComponent={this.Transition}
+        keepMounted
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle id="alert-dialog-slide-title">{"Are you sure you want to delete this plant?"}</DialogTitle>
+        <DialogActions>
+          <Button onClick={this.handleAlertClose} color="primary">
+            Wait! No! No I don't!
+          </Button>
+          <Button onClick={() => this.props.deleteCollection(this.props.collection)}color="primary">
+            Yes, I killed it.
+          </Button>
+        </DialogActions>
+      </Dialog>
 
     <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open}>
         <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>

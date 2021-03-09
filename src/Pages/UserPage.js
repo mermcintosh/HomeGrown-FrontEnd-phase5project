@@ -13,6 +13,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
+import Slide from '@material-ui/core/Slide';
 
 
 let CollectionsURL = "http://localhost:3000/collections/"
@@ -65,11 +66,12 @@ const styles = theme => ({
   },
 
   div: {
-    fontSize: 90,
+    fontSize: 80,
     color: "white",
     fontFamily: "Barlow Condensed",
     paddingLeft: 70,
     marginTop: -150,
+    fontWeight: "bold"
   },
   root: {
     display: 'flex',
@@ -93,6 +95,11 @@ const styles = theme => ({
     color: 'white',
   },
 })
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 
 class UserPage extends React.Component{
 
