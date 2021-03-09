@@ -20,6 +20,7 @@ import Avatar from '@material-ui/core/Avatar';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 
 
+
 let CollectionsURL = "http://localhost:3000/collections/"
 
 const styles = (theme) => ({
@@ -50,7 +51,7 @@ const styles = (theme) => ({
     textAlign: "center",
     border: "grey solid 1px",
     padding: "1rem",
-    width: "35rem",
+    width: "32rem",
     height: "40rem",
     display: "inline-grid",
     margin: "1 rem 2 rem",
@@ -59,7 +60,7 @@ const styles = (theme) => ({
     letterSpacing: "2px",
     backgroundColor: "white",
     margin: 20,
-    marginTop: 50,
+    marginTop: 70,
     borderRadius: "15%"
   },
 
@@ -80,26 +81,63 @@ const styles = (theme) => ({
     fontSize: 35,
     color: "#474a47",
     fontStyle: "italic"
-  }
+  },
+
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
 
 })
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
 
 class CollectionCard extends React.Component{
 
   state={
-    showForm: false
+    showForm: false,
+    open: false
   }
 
-  //  deleteCollection = () =>{
-  //    let plant = this.props.collection.plant
-  //     fetch(CollectionsURL + this.props.collection.plant.id, {
-  //       method: "DELETE",
-  //     })
-  //     .then(res => res.json())
-  //     .then((userPlant) => {
-  //       this.props.deleteUserPlant(plant)
-  //     })
-  //   }
+  handleClickOpen = ()=> {
+    this.setState({
+      open:true
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      open:false
+    })
+  }
 
   handleShowForm = () => {
     this.setState({showForm: !this.state.showForm})
@@ -109,7 +147,7 @@ class CollectionCard extends React.Component{
     return (
       <div className={classes.card}>
         <h3 className={classes.name}>{this.props.collection.plant.name}</h3>
-        <h3 className={classes.nickname}>"{this.props.collection.nickname}"</h3>
+        <h3 className={classes.nickname}>{this.props.collection.nickname}</h3>
         <img className={classes.image} src={this.props.collection.plant.image}/>
         {/* {console.log(this.props.collection)} */}
         {/* wont show up on screen (the nickname above) */}
@@ -123,24 +161,56 @@ class CollectionCard extends React.Component{
         <h3>{this.props.collection.watering}</h3>
         <h3>{this.props.collection.soil}</h3> */}
         <ButtonGroup className={classes.buttonGroup}aria-label="outlined primary button group">
-        <Button className={classes.buttons}>More</Button>
+        <Button className={classes.buttons} onClick={this.handleClickOpen}>More</Button>
         <Button className={classes.buttons} onClick={() => this.props.deleteCollection(this.props.collection)}>Delete</Button>
         {/* <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button> */}
 
-        <Button className={classes.buttons} onClick={this.handleShowForm}> Nickname</Button>
+        
+    </ButtonGroup>
+
+    <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open}>
+        <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
+          {this.props.collection.plant.name}
+        </DialogTitle>
+        <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
+          {this.props.collection.nickname}
+        </DialogTitle>
+        <CardMedia
+        // component="img" src={props.collection.plant.image}
+        className={classes.media}
+        />
+        <DialogContent dividers>
+          <Typography gutterBottom>
+           Type - {this.props.collection.plant.category}
+          </Typography>
+          <Typography gutterBottom>
+           Lighting - {this.props.collection.plant.light}
+          </Typography>
+          <Typography gutterBottom>
+            Watering - {this.props.collection.plant.watering}
+          </Typography>
+          <Typography gutterBottom>
+            Soil - {this.props.collection.plant.soil}
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+        {/* <Button autoFocus onClick={handleClose} color="primary">
+            Close
+          </Button> */}
+          <Button className={classes.buttons} onClick={this.handleShowForm}> Nickname</Button>
         { this.state.showForm
             ?
           <EditForm 
             collection={this.props.collection} 
             currentUserData={this.props.currentUserData} 
             assignNickname={this.props.assignNickname}
+            // open={this.state.open}
           />
             :
           null
         }
-
-        
-    </ButtonGroup>
+        </DialogActions>
+      </Dialog>
       </div>
     )
   }}

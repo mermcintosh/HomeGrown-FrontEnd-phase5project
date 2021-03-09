@@ -43,7 +43,7 @@ const styles = theme => ({
   container: {
     marginTop: 200,
     paddingTop: 300,
-    backgroundColor: '#79a67a',
+    backgroundColor: '#5a825a',
     height: "100vh",
     borderRadius: "50px 50px 1px 1px",
     overflow: "auto"
