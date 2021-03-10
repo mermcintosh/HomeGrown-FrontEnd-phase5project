@@ -9,6 +9,7 @@ import Testimonials from '../Components/Testimonials';
 import Team from '../Components/Team';
 import Contact from '../Components/Contact'; 
 import { CallMissedSharp } from '@material-ui/icons';
+// import FadeIn from 'react-fade-in'
 // import { withStyles } from '@material-ui/core/styles';
 
 
@@ -35,6 +36,7 @@ class LandingPage extends React.Component{
     render(){
       // const {classes} = this.props
     return (
+     
       <div >
        <HeroLanding/>
        <Features/>
@@ -43,6 +45,7 @@ class LandingPage extends React.Component{
        <Gallery/>
        <Contact/>
       </div>
+     
     )
   }
 }

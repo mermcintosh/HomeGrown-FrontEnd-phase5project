@@ -196,7 +196,7 @@ class CollectionCard extends React.Component{
         aria-describedby="alert-dialog-slide-description"
         className={classes.deleteModal}
       >
-        <DialogTitle className={classes.deleteModalTitle}id="alert-dialog-slide-title">{"Are you sure you want to delete this plant?"}</DialogTitle>
+        <DialogTitle className={classes.deleteModalTitle}id="alert-dialog-slide-title" >{"Are you sure you want to delete this plant?"} </DialogTitle>
         <DialogActions>
           <Button onClick={this.handleAlertClose} className={classes.deleteModalButton} color="#79a67a">
             Wait! No! No I don't!
