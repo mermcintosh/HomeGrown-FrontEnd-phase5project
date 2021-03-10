@@ -23,7 +23,7 @@ const styles = theme => ({
     marginTop: "5px",
   marginBottom: "15px",
   marginRight: "20px",
-  marginLeft: "20px"
+  marginLeft: "20px",
   },
 
   avatar: {
