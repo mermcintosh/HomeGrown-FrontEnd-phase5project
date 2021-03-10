@@ -16,16 +16,30 @@ import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    // justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-    fontFamily: "Barlow Condensed",
-    borderRadius: "15%",
+  card: {
+    textAlign: "center",
+    border: "grey solid 1px",
+    padding: "1rem",
     width: "100%",
-    maxWidth: "31%"
+    minHeight: "45rem",
+    // display: "inline-grid",
+    margin: "20px",
+    boxShadow: "3px 10px #6f8f78",
+    fontFamily: "Barlow Condensed",
+    letterSpacing: "2px",
+    backgroundColor: "white",
+    marginTop: 70,
+    borderRadius: "3%",
+    maxWidth: "21%",
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+
+  moreButton:{
+    // position: "absolute"
+    justifyContent: "center bottom"
   },
 
   closeButton: {
@@ -35,25 +49,20 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[500],
   },
 
-  media: {
-    justifySelf: "center",
-    height: "12rem",
-    width: "12 rem",
-    
+  description: {
+    fontSize: "1.5rem",
+    paddingTop: 20
   },
 
-  gridList: {
-    width: 1900,
-    height: 700,
-    spacing: 20,
-    borderRadius: 50
+  media: {
+
   },
+  
 
   cardTitle: {
-    fontSize: "2rem",
+    fontSize: "3rem",
     fontFamily: "Barlow Condensed",
     letterSpacing: "1px",
-
   },
 }));
 // console.log(styles.closeButton)
@@ -100,63 +109,59 @@ export default function DirectoryCard(props) {
   };
 
   return (
-    <div>
-      {console.log(classes)}
-      <Card className={classes.root} variant="outlined">
-          <CardContent>
-        <Typography
-          className={classes.cardTitle}
-          color="black"
-          gutterBottom
-        >
-        {props.plant.name}
-        </Typography>
-        <CardMedia
-        component="img" src={props.plant.image}
-        className={classes.media}
-        />
-        <br/>
-        <Typography variant="body2" component="p">
-        {props.plant.description}
-        </Typography>
-        <br/>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        More
-      </Button>
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          {props.plant.name}
-        </DialogTitle>
-        <CardMedia
-        // component="img" src={props.collection.plant.image}
-        className={classes.media}
-        />
-        <DialogContent dividers>
-          <Typography gutterBottom>
-           Type - {props.plant.category}
-          </Typography>
-          <Typography gutterBottom>
-           Lighting - {props.plant.light}
-          </Typography>
-          <Typography gutterBottom>
-            Watering - {props.plant.watering}
-          </Typography>
-          <Typography gutterBottom>
-            Soil - {props.plant.soil}
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-        {/* <Button autoFocus onClick={handleClose} color="primary">
-            Close
-          </Button> */}
-          <Button autoFocus onClick={ () => (props.addToCollection(props.plant))} component={Link} to="/user" variant="outlined" color="primary">
-            Add to collection!
+    <div className={classes.card}>
+
+            <Typography
+              className={classes.cardTitle}
+              color="black"
+              gutterBottom
+            >
+            {props.plant.name}
+            </Typography>
+            <img className={classes.image} src={props.plant.image} alt=""/>
+
+            <br/>
+            <Typography variant="body2" component="p" className={classes.description}>
+            {props.plant.description}
+            </Typography>
+            <br/>
+          <Button variant="outlined" color="primary" className={classes.moreButton} onClick={handleClickOpen}>
+            More
           </Button>
-        </DialogActions>
-      </Dialog>
-        </CardContent>
-        </Card>
-        </div>
+          <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+            <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+              {props.plant.name}
+            </DialogTitle>
+            <div>
+              <CardMedia
+              component="img" src={props.plant.image}
+              className={classes.media}
+              />
+            </div>
+            <DialogContent dividers>
+              <Typography gutterBottom>
+              Type - {props.plant.category}
+              </Typography>
+              <Typography gutterBottom>
+              Lighting - {props.plant.light}
+              </Typography>
+              <Typography gutterBottom>
+                Watering - {props.plant.watering}
+              </Typography>
+              <Typography gutterBottom>
+                Soil - {props.plant.soil}
+              </Typography>
+            </DialogContent>
+            <DialogActions>
+            {/* <Button autoFocus onClick={handleClose} color="primary">
+                Close
+              </Button> */}
+              <Button autoFocus onClick={ () => (props.addToCollection(props.plant))} component={Link} to="/user" variant="outlined" color="primary">
+                Add to collection!
+              </Button>
+            </DialogActions>
+          </Dialog>
+    </div>
   );
 }
 

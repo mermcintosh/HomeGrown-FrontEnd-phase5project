@@ -102,7 +102,7 @@ const styles = theme => ({
   userPageHeader: {
     display: "flex",
     justifyContent: "space-between",
-    marginTop: -150,
+    marginTop: -200,
     marginRight: 70,
     width: "100%"
   }

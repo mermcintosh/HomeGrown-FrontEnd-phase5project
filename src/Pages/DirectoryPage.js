@@ -6,6 +6,8 @@ import BackButton from '../Components/BackButton.js'
 import { Grid } from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
+import Container from '@material-ui/core/Container';
+
 
 
 
@@ -45,8 +47,25 @@ const styles = theme => ({
     fontSize: 45
   },
 
-  gridListContainer: {
-    background: "pink"
+  container: {
+    minHeight: "100vh",
+    // borderRadius: "50px 50px 1px 1px",
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "stretch",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center"
+    // marginLeft: 50,
+    // marginRight:50
+    // justifyContent: "space=around"
+  },
+
+  pagination: {
+    maxWidth: "92%",
+    display: "flex",
+    justifyContent: "space-between",
+    margin: "0 auto"
   }
 });
 
@@ -63,25 +82,23 @@ class DirectoryPage extends React.Component{
        {/* <h1 className={classes.title}>Find your next plant here!</h1> */}
         <Search changeSearch={this.props.changeSearch} updateFilter={this.props.updateFilter} />
         <br/>
-        <Grid container spacing={4} className={classes.oogabooga} justify="center">
-            <GridList item xs={12} sm={6} md={4} className={classes.gridListContainer}>
-            {this.props.plants.map(plant => <DirectoryCard plant={plant} key={plant.id} addToCollection={this.props.addToCollection} updateCurrentUser={this.props.updateCurrentUser} setUserCollection={this.props.setUserCollection}/>)}
-            </GridList>
-            {this.props.limit + 8 < this.props.plantLength ? <MoreButton morePlants={this.props.morePlants} plants={this.props.plants}/> : null}
+        <Container container spacing={4} className={classes.container} justify="center" maxWidth="false">
+            {this.props.plants.map(plant => 
+              <DirectoryCard 
+                plant={plant} 
+                key={plant.id} 
+                addToCollection={this.props.addToCollection} 
+                updateCurrentUser={this.props.updateCurrentUser} 
+                setUserCollection={this.props.setUserCollection}/>
+            )}
+        </Container>
+        <div className={classes.pagination}>
             {this.props.limit == 0 ? null : <BackButton backPlants={this.props.backPlants} plants={this.props.plants}/>} 
-        </Grid>
+            {this.props.limit + 8 < this.props.plantLength ? <MoreButton morePlants={this.props.morePlants} plants={this.props.plants}/> : null}
+        </div>
       </div>
       
     )
   }}
   
   export default withStyles(styles)(DirectoryPage);
-
-
-
-  // <div className="container"> right above <Search
-
-
-  // <IconButton>
-  //         <SearchIcon />
-  //       </IconButton>
