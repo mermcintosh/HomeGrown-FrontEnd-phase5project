@@ -233,7 +233,7 @@ addToCollection = (plant) =>{
                 changeSearch={this.changeSearch} 
                 morePlants={this.morePlants} 
                 backPlants={this.backPlants} 
-                plants={this.filteredPlants().slice(this.state.limit, this.state.limit + 4)}
+                plants={this.filteredPlants().slice(this.state.limit, this.state.limit + 8)}
                 limit={this.state.limit}
                 plantLength={this.state.plants.length}
                 updateFilter={this.updateFilter}

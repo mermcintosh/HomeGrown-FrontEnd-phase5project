@@ -15,15 +15,18 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = (theme) => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//     justifyContent: 'space-around',
-//     overflow: 'hidden',
-//     backgroundColor: theme.palette.background.paper,
-//     fontFamily: "Barlow Condensed"
-//   },
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    // justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+    fontFamily: "Barlow Condensed",
+    borderRadius: "15%",
+    width: "100%",
+    maxWidth: "31%"
+  },
 
   closeButton: {
     position: 'absolute',
@@ -35,7 +38,8 @@ const styles = (theme) => ({
   media: {
     justifySelf: "center",
     height: "12rem",
-    width: "12 rem"
+    width: "12 rem",
+    
   },
 
   gridList: {
@@ -45,12 +49,16 @@ const styles = (theme) => ({
     borderRadius: 50
   },
 
-  title: {
-    fontSize: "10rem"
-  },
-});
+  cardTitle: {
+    fontSize: "2rem",
+    fontFamily: "Barlow Condensed",
+    letterSpacing: "1px",
 
-const DialogTitle = withStyles(styles)((props) => {
+  },
+}));
+// console.log(styles.closeButton)
+
+const DialogTitle = withStyles(useStyles)((props) => {
   const { children, classes, onClose, ...other } = props;
   
   return (
@@ -80,7 +88,7 @@ const DialogActions = withStyles((theme) => ({
 
 export default function DirectoryCard(props) {
 
-  const classes = styles
+  const classes = useStyles()
 
   const [open, setOpen] = React.useState(false);
 
@@ -93,10 +101,11 @@ export default function DirectoryCard(props) {
 
   return (
     <div>
+      {console.log(classes)}
       <Card className={classes.root} variant="outlined">
           <CardContent>
         <Typography
-          className={classes.title}
+          className={classes.cardTitle}
           color="black"
           gutterBottom
         >

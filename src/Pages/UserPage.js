@@ -45,24 +45,29 @@ const styles = theme => ({
     marginTop: 200,
     paddingTop: 300,
     backgroundColor: '#5a825a',
-    height: "100vh",
+    minHeight: "100vh",
     borderRadius: "50px 50px 1px 1px",
-    overflow: "auto"
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
   userImage:{
     marginTop:100,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginBottom: -470,
     borderRadius: "50%",
     width: 650,
     height: 625,
-    display: "block",
     backgroundPosition: "center",
     backgroundSize: "auto 80px",
     // textAlign: 'center',
     objectFit: 'cover',
-    marginBottom: -470,
     display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
+    zIndex: 10,
+    position: "relative"
   },
 
   div: {
@@ -70,7 +75,6 @@ const styles = theme => ({
     color: "white",
     fontFamily: "Barlow Condensed",
     paddingLeft: 70,
-    marginTop: -150,
     fontWeight: "bold"
   },
   root: {
@@ -94,6 +98,14 @@ const styles = theme => ({
   icon: {
     color: 'white',
   },
+
+  userPageHeader: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: -150,
+    marginRight: 70,
+    width: "100%"
+  }
 })
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -142,8 +154,9 @@ class UserPage extends React.Component{
       <CssBaseline />
       <img className={classes.userImage} src="https://images.unsplash.com/photo-1529340376075-067b25b3d7fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"/>
       <Container className={classes.container} maxWidth="xl" >
-        <div><Typography component="div" className={classes.div}>
-          Hello, {this.props.currentUser.username}
+        <div className={classes.userPageHeader}>
+          <Typography component="div" className={classes.div}>
+              Hello, {this.props.currentUser.username}
           </Typography>
           <Button component={Link} className={classes.buttons} to="/directory">Add Plant</Button>
           </div>

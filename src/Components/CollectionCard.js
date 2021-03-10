@@ -54,7 +54,7 @@ const styles = (theme) => ({
     textAlign: "center",
     border: "grey solid 1px",
     padding: "1rem",
-    width: "32rem",
+    width: "100%",
     height: "40rem",
     display: "inline-grid",
     margin: "1 rem 2 rem",
@@ -64,7 +64,8 @@ const styles = (theme) => ({
     backgroundColor: "white",
     margin: 20,
     marginTop: 70,
-    borderRadius: "15%"
+    borderRadius: "15%",
+    maxWidth: "31%"
   },
 
   image: {

@@ -13,7 +13,8 @@ const styles = theme => ({
   gridContainer: {
     paddingLeft: "40px",
     paddingRight: "40px",
-    objectFit: "contain"
+    objectFit: "contain",
+    
 
   },
 
@@ -42,6 +43,10 @@ const styles = theme => ({
     textAlign: "left",
     padding: 40,
     fontSize: 45
+  },
+
+  gridListContainer: {
+    background: "pink"
   }
 });
 
@@ -58,15 +63,13 @@ class DirectoryPage extends React.Component{
        {/* <h1 className={classes.title}>Find your next plant here!</h1> */}
         <Search changeSearch={this.props.changeSearch} updateFilter={this.props.updateFilter} />
         <br/>
-        <Grid container spacing={4} className={classes.gridContainer} justify="center">
-      <div>
-       <GridList item xs={12} sm={6} md={4} >
-       {this.props.plants.map(plant => <DirectoryCard plant={plant} key={plant.id} addToCollection={this.props.addToCollection} updateCurrentUser={this.props.updateCurrentUser} setUserCollection={this.props.setUserCollection}/>)}
-       </GridList>
-       {this.props.limit + 8 < this.props.plantLength ? <MoreButton morePlants={this.props.morePlants} plants={this.props.plants}/> : null}
-       {this.props.limit == 0 ? null : <BackButton backPlants={this.props.backPlants} plants={this.props.plants}/>} 
-      </div>
-      </Grid>
+        <Grid container spacing={4} className={classes.oogabooga} justify="center">
+            <GridList item xs={12} sm={6} md={4} className={classes.gridListContainer}>
+            {this.props.plants.map(plant => <DirectoryCard plant={plant} key={plant.id} addToCollection={this.props.addToCollection} updateCurrentUser={this.props.updateCurrentUser} setUserCollection={this.props.setUserCollection}/>)}
+            </GridList>
+            {this.props.limit + 8 < this.props.plantLength ? <MoreButton morePlants={this.props.morePlants} plants={this.props.plants}/> : null}
+            {this.props.limit == 0 ? null : <BackButton backPlants={this.props.backPlants} plants={this.props.plants}/>} 
+        </Grid>
       </div>
       
     )
