@@ -20,6 +20,7 @@ import Avatar from '@material-ui/core/Avatar';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Slide from '@material-ui/core/Slide';
+import { StylesProvider } from "@material-ui/core/styles";
 
 
 
@@ -41,13 +42,15 @@ const styles = (theme) => ({
     height: 60,
     width: 150,
     padding: '0 30px',
-    fontSize: 15,
+    fontSize: 20,
+    
     
     // align: "right",
   },
 
   buttonGroup: {
-    justifyContent: "center"
+    justifyContent: "center",
+    
   },
 
   card: {
@@ -93,6 +96,10 @@ const styles = (theme) => ({
     top: theme.spacing(1),
     color: theme.palette.grey[500],
   },
+
+  deleteModal:{
+    padding: 50,
+  }
 
 })
 
@@ -178,7 +185,8 @@ class CollectionCard extends React.Component{
 
         {/* <button onClick={() => this.props.deleteCollection(this.props.collection)}>Remove from collection!</button> */} 
     </ButtonGroup>
-
+    
+   
     <Dialog
         onClose={this.handleAlertClose}
         open={this.state.alertOpen}
@@ -186,19 +194,21 @@ class CollectionCard extends React.Component{
         keepMounted
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
+        className={classes.deleteModal}
       >
-        <DialogTitle id="alert-dialog-slide-title">{"Are you sure you want to delete this plant?"}</DialogTitle>
+        <DialogTitle className={classes.deleteModalTitle}id="alert-dialog-slide-title">{"Are you sure you want to delete this plant?"}</DialogTitle>
         <DialogActions>
-          <Button onClick={this.handleAlertClose} color="primary">
+          <Button onClick={this.handleAlertClose} className={classes.deleteModalButton} color="#79a67a">
             Wait! No! No I don't!
           </Button>
-          <Button onClick={() => this.props.deleteCollection(this.props.collection)}color="primary">
+          <Button onClick={() => this.props.deleteCollection(this.props.collection)} className={classes.deleteModalButton}color="#79a67a">
             Yes, I killed it.
           </Button>
         </DialogActions>
       </Dialog>
+      
 
-    <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open}>
+    <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} className={classes.moreModal}>
         <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
           {this.props.collection.plant.name}
         </DialogTitle>

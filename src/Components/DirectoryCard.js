@@ -39,7 +39,19 @@ const useStyles = makeStyles((theme) => ({
 
   moreButton:{
     // position: "absolute"
-    justifyContent: "center bottom"
+    justifyContent: "center",
+    margin: theme.spacing(3, 0, 2),
+    border: 0,
+    borderRadius: "5%",
+    boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
+    color: '#25853f',
+    height: 60,
+    width: 150,
+    padding: '0 30px',
+    fontSize: 20,
+    marginLeft: 170
+    
+
   },
 
   closeButton: {
