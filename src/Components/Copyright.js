@@ -27,7 +27,7 @@ class Copyright extends React.Component{
       <Typography variant="body2" color="textSecondary" align="center" className={classes.words}>
         {'Copyright © '}
         <Link color="inherit" href="https://material-ui.com/">
-          Homegrown LLC
+          HomeGrown LLC
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
