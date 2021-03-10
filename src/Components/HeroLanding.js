@@ -87,6 +87,7 @@ const homegrownImage = {
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: '60% 40%',
+  borderRadius: "4px",
   // paddingTop: 175,
   // paddingBottom: 175,
   // paddingLeft:50,
