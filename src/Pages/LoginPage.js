@@ -168,7 +168,7 @@ class LoginPage extends React.Component{
                 </Button>
             </Grid>
             <Box mt={5}>
-              <Copyright />
+              {/* <Copyright /> */}
             </Box>
           </form>
         </div>

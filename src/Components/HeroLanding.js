@@ -144,7 +144,7 @@ class HeroLanding extends React.Component{
              </Typography>
              <br/>
              <Typography className={classes.subtitle} variant="h3">
-               HomeGrown was established in 2021 in hopes that the more time you are spending at home, the more time you will love and care for your favorite plants. We are here to ensure quality care for any plant that enters your home. 
+               HomeGrown was established in 2021 in hopes that the more time you are spending at home, the more time you will love and care for your favorite plants. We are here to ensure quality care for all plants that enter your home. 
              </Typography>
            </div>
          </Grid>

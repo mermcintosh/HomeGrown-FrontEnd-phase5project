@@ -32,7 +32,7 @@ class Gallery extends React.Component{
         const {classes} = this.props;
     return (
         <div className={classes.root}>
-            <h1 className={classes.joy}>Homegrown on Instagram</h1>
+            <h1 className={classes.joy}>HomeGrown on Instagram</h1>
         <GridList cellHeight={400} className={classes.gridList} cols={4} spacing={50}>
           {tileData.map((tile) => (
             <GridListTile key={tile.img} cols={tile.cols || 1}>
