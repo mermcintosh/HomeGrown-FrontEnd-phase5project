@@ -161,25 +161,6 @@ updateFilter = (filter) => {
   this.setState({filter})
 }
 
-// updateNickname = (userPlant) => {
-//   console.log(userPlant)
-//   // const copyOfCurrentUserData = {...this.state.currentUserData}
-//   //           const collections = copyOfCurrentUserData.collections.map(collection => {
-//   //             if(collection.id === id) {
-//   //               console.log(`the collection id is ${collection.id} and the nickname is ${plantNickname}`)
-//   //               collection.nickname = plantNickname
-//   //             }
-//   //             return collection
-//   //           })
-  
-//   //           copyOfCurrentUserData.collections = collections
-//   //           this.setState({
-//   //               currentUserData: copyOfCurrentUserData
-//   //           })
-//   //         }
-// }
-
-
 addToCollection = (plant) =>{
 
   let newCollectionPlant = {
@@ -223,8 +204,6 @@ addToCollection = (plant) =>{
                 setUserCollection={this.setUserCollection}
                 hideShell={this.hideShell}
                 assignNickname={this.assignNickname}
-                
-                // updateNickname={this.updateNickname}
                 />}/>
             <Route path="/directory" render={(props) => (
               <DirectoryPage 
@@ -243,7 +222,6 @@ addToCollection = (plant) =>{
             <Route component={NotFoundPage}/>
           </Switch>
         <Router/>
-        {/* <Footer/> */}
     </Fragment>
   )
 }}

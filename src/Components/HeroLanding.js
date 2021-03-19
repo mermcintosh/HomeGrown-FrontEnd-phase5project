@@ -59,12 +59,6 @@ const styles = theme => ({
 
 subtitle: {
     fontSize: 45,
-    // padding: theme.spacing(3),
-    //   [theme.breakpoints.up('md')]: {
-    //   padding: theme.spacing(6),
-    //   paddingLeft: 0,
-    // },
-    // textAlign: "center",
     fontFamily: "Barlow Condensed",
     color: "white",
     paddingLeft: 60,
@@ -80,17 +74,11 @@ const image1= "https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixid
 
 const homegrownImage = {
   position: 'relative',
-  // backgroundColor: theme.palette.grey[800],
-  // color: theme.palette.common.white,
-  // marginBottom: theme.spacing(4),
   backgroundImage: 'url(https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80)',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: '60% 40%',
   borderRadius: "4px",
-  // paddingTop: 175,
-  // paddingBottom: 175,
-  // paddingLeft:50,
   marginLeft: 42,
   marginRight: 40,
   marginBottom:20,
@@ -110,29 +98,9 @@ const App = {
 class HeroLanding extends React.Component{
     render(){
   const {classes} = this.props
-//   const { post } = props;
 
   return (
-    
-    // <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80)` }}>
-    //   {/* Increase the priority of the hero background image */}
-    //   {<img style={{ display: 'none' }} src={`url(https://images.unsplash.com/photo-1497990571654-77aa8ec36038?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHBsYW50c3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)`} alt={"plant image"} />}
-    //   <div className={classes.overlay} />
-    //   <Grid container>
-    //     <Grid item md={6}>
-    //       <div className={classes.mainFeaturedPostContent}>
-    //         <Typography className={classes.title} component="h1" variant="h3" color="inherit" style={{ fontFamily: 'Vidaloka' }}>
-    //          HomeGrown
-    //         </Typography>
-    //         <br/>
-    //         <Typography className={classes.subTitle} variant="h3" color="inherit" style={{ fontFamily: 'Quicksand' }}>
-    //           HomeGrown was established in 2021 in hopes that the more time you are spending at home, the more time you will love and care for your green family. 
-    //         </Typography>
-    //       </div>
-    //     </Grid>
-    //   </Grid>
-    // </Paper>
-
+ 
     <div className="App">
       <Parallax style={homegrownImage} bgImage={image1} strength={500}>
       <div className={classes.overlay}>

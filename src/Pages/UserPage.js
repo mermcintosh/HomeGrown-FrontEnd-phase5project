@@ -22,13 +22,9 @@ const styles = theme => ({
   buttons: {
     margin: theme.spacing(3, 0, 2),
     background: 'linear-gradient(45deg, #eaf7dc 30%, #79a67a 90%)',
-    // '&:hover': {
-    //   backgroundColor: 'linear-gradient(45deg,#79a67a 30%, #79a67a 90%)',
-    // },
     border: 0,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
-    // color: '#25853f',
     height: 60,
     width: 150,
     padding: '0 30px',
@@ -36,10 +32,6 @@ const styles = theme => ({
     float: "right"
 
   },
-
-  // card: {
-  //   color: "white"
-  // },
 
   container: {
     marginTop: 200,
@@ -63,7 +55,6 @@ const styles = theme => ({
     height: 625,
     backgroundPosition: "center",
     backgroundSize: "auto 80px",
-    // textAlign: 'center',
     objectFit: 'cover',
     display: "block",
     zIndex: 10,
@@ -87,7 +78,6 @@ const styles = theme => ({
   gridList: {
     width: 500,
     height: 450,
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
   titleBar: {
@@ -125,7 +115,6 @@ class UserPage extends React.Component{
         fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
         .then(res => res.json())
         .then(currentUserData => {
-        // let UserCollection = this.props.setUserCollection(currentUserData)
         this.setState({currentUserData})
       })
       }

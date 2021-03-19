@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
-// import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -41,7 +40,7 @@ const styles = theme => ({
     backgroundColor: "#91c292",
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -177,7 +176,6 @@ class RegisterPage extends React.Component {
           </Button>
       </Grid>
       <Box mt={5}>
-        {/* <Copyright /> */}
       </Box>
     </form>
     </div>
@@ -193,38 +191,3 @@ class RegisterPage extends React.Component {
 
 
 export default withStyles(styles)(RegisterPage);
-
-
-{/* <div>
-{this.state.created ? (
-  <Redirect to="/login" />
-) : (
-  <div>
-    <div className="please-log-in">
-      <p>{this.state.errorMessage}</p>
-    </div>
-    <br />
-    <form onSubmit={this.createUser}>
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        onChange={this.handleChange}
-      />
-      <br />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        onChange={this.handleChange}
-      />
-      <br />
-      <br />
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-)}
-<br />
-<br />
-</div>
-); */}

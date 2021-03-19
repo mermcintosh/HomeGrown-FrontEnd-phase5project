@@ -38,7 +38,6 @@ const styles = theme => ({
     width: 150,
     padding: '0 30px',
     fontSize: 15,
-    // objectAlign: "right"
   },
 
   title:{
@@ -49,16 +48,13 @@ const styles = theme => ({
 
   container: {
     minHeight: "100vh",
-    // borderRadius: "50px 50px 1px 1px",
     overflow: "hidden",
     display: "flex",
     alignItems: "stretch",
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center"
-    // marginLeft: 50,
-    // marginRight:50
-    // justifyContent: "space=around"
+    
   },
 
   pagination: {
@@ -79,7 +75,6 @@ class DirectoryPage extends React.Component{
       const {classes} = this.props;
     return (
       <div className={classes.background}>
-       {/* <h1 className={classes.title}>Find your next plant here!</h1> */}
         <Search changeSearch={this.props.changeSearch} updateFilter={this.props.updateFilter} />
         <br/>
         <Container container spacing={4} className={classes.container} justify="center" maxWidth="false">

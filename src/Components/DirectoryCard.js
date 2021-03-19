@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem",
     width: "100%",
     minHeight: "45rem",
-    // display: "inline-grid",
     margin: "20px",
     boxShadow: "3px 10px #6f8f78",
     fontFamily: "Barlow Condensed",
@@ -38,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   moreButton:{
-    // position: "absolute"
     justifyContent: "center",
     margin: theme.spacing(3, 0, 2),
     border: 0,
@@ -77,7 +75,6 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "1px",
   },
 }));
-// console.log(styles.closeButton)
 
 const DialogTitle = withStyles(useStyles)((props) => {
   const { children, classes, onClose, ...other } = props;
@@ -165,9 +162,6 @@ export default function DirectoryCard(props) {
               </Typography>
             </DialogContent>
             <DialogActions>
-            {/* <Button autoFocus onClick={handleClose} color="primary">
-                Close
-              </Button> */}
               <Button autoFocus onClick={ () => (props.addToCollection(props.plant))} component={Link} to="/user" variant="outlined" color="primary">
                 Add to collection!
               </Button>

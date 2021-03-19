@@ -14,13 +14,6 @@ const styles = theme => ({
     fontFamily: "Barlow Condensed"
   },
   
-//   cards:{
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//     justifyContent: 'space-around',
-//     overflow: 'hidden', 
-//   },
-
   feature: {
       textAlign: "center",
       fontSize: 100,
@@ -32,10 +25,6 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
 
   },
-
-//   paper:hover{
-// color:
-//   },
 
   featureWords: {
       fontSize: 40

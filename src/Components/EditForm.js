@@ -4,11 +4,6 @@ let CollectionsURL = "http://localhost:3000/collections/"
 
 class EditForm extends React.Component{
 
-    // state= {
-    //     plantNickname: ""
-    // }
-
-
     handleSubmit = (e) => {
         e.preventDefault()
         let newNickname = document.querySelector('#nickname').value

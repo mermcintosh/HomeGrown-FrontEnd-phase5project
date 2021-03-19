@@ -4,7 +4,6 @@ import {fade, withStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import Link from '@material-ui/core/Link';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import LoginPage from '../Pages/LoginPage.js'
 import RegisterPage from '../Pages/RegisterPage.js'
@@ -17,9 +16,6 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 
 const styles = theme => ({
   toolbar: {
-    // border: `1px solid ${theme.palette.divider}`,
-    // padding: "20px",
-    // margin: 20,
     marginTop: "5px",
   marginBottom: "15px",
   marginRight: "20px",
@@ -34,9 +30,6 @@ const styles = theme => ({
   buttons: {
     margin: theme.spacing(3, 0, 2),
     background: 'linear-gradient(45deg, #79a67a 30%, #25853f 90%)',
-    // '&:hover': {
-    //   backgroundColor: 'linear-gradient(45deg, #25853f 30%, #79a67a 90%)',
-    // },
     border: 0,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(107, 125, 108)',
@@ -45,17 +38,13 @@ const styles = theme => ({
     width: 150,
     padding: '0 30px',
     fontSize: 15,
-    // align: "right",
-
   },
 
 
   toolbarTitle: {
     flex: 1,
     paddingLeft: 140,
-    // paddingRight: 800,
     fontSize: 70,
-    // textAlign: "center"
   },
 
   toolbarSecondary: {
@@ -74,7 +63,6 @@ class NavBar extends React.Component{
   
   render(){
     const {classes} = this.props
-    // const { sections, title } = this.props;
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
@@ -129,40 +117,5 @@ class NavBar extends React.Component{
   );
 }
 }
-// NavBar.propTypes = {
-//   sections: PropTypes.array,
-//   title: PropTypes.string,
-// };
-
 
 export default withStyles(styles)(NavBar)
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import ReactDOM from 'react-dom'
-// import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-// import LoginPage from '../Pages/LoginPage.js'
-// import RegisterPage from '../Pages/RegisterPage.js'
-
-// class NavBar extends React.Component{
-//     render(){
-//     return (
-//       <div>
-//        {this.props.currentUser ? <button onClick={this.props.logOut}><Link to="/user">Logout</Link></button> : <button><Link to="/login">Login</Link></button>} 
-//        {this.props.currentUser ? null : <button><Link to="/register">Register</Link></button>}       
-//        </div>
-       
-//     )
-//   }}
-  
-//   export default NavBar;
-
- 

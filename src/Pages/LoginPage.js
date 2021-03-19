@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
-// import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -19,7 +18,6 @@ import Container from '@material-ui/core/Container';
 const styles = theme => ({
   root: {
     height: '100vh',
-    // textAlign: "center"
   },
 
   image: {
@@ -43,10 +41,6 @@ const styles = theme => ({
   },
   form: {
     marginTop: theme.spacing(1),
-    // alignItems: "center",
-    // justify: "center"
-    // textAlign: "center"
-    // display: "inline-block"
     
   },
   submit: {
@@ -168,7 +162,6 @@ class LoginPage extends React.Component{
                 </Button>
             </Grid>
             <Box mt={5}>
-              {/* <Copyright /> */}
             </Box>
           </form>
         </div>
@@ -178,7 +171,6 @@ class LoginPage extends React.Component{
 
   }}
   
-  // export default LoginPage;
   export default withStyles(styles)(LoginPage)
 
 

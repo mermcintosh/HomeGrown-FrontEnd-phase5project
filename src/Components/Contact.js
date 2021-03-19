@@ -20,9 +20,6 @@ const styles = theme => ({
     paper:{
       textDecoration: "underline"
     },
-    // email:{
-    //    fontWeight: "bold" 
-    // },
     
       title: {
         fontSize: 14,
