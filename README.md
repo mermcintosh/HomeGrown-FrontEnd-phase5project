@@ -1,3 +1,5 @@
+The HomeGrown app is an app for beginner and advaned plant owners. A user can login or create an account. Then, the user can search through the plant database with the search bar, the filter, or pagination. The user can select the plant and add the plant to their account. Then, the user can give the plant a nickname or delete the plant from their account. Finally the user can logout and return to the home page.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
